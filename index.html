@@ -151,6 +151,7 @@
         var x = document.getElementById("myTopnav");
         if (x.className === "topnav") {
             x.className += " responsive";
+            x.style.position = "fixed"
         } else {
             x.className = "topnav";
         }
@@ -173,14 +174,35 @@
 
         }
     });
+
+    function onAboutClick() {
+        closeMobileNav();
+    }
+
+    function onPortfolioClick() {
+        closeMobileNav();
+    }
+
+    function onTitleClick() {
+        closeMobileNav();
+    }
+
+    function onContactClick() {
+        closeMobileNav();
+    }
+
+    function closeMobileNav() {
+        var ul = document.getElementsByClassName('topnav')[0];
+        ul.className = "topnav";
+    }
 </script>
 
 <body>
     <div id="myTopnav" class="topnav">
-        <a href="#home">Home</a>
-        <a href="#news">News</a>
-        <a href="#contact">Contact</a>
-        <a href="#about">About</a>
+        <a href="#home" onclick="closeMobileNav()">Home</a>
+        <a href="#news" onclick="closeMobileNav()">News</a>
+        <a href="#contact" onclick="closeMobileNav()">Contact</a>
+        <a href="#about"onclick="closeMobileNav()">About</a>
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
     </div>
     <div class="bgimg">
@@ -200,7 +222,9 @@
 <br>
 <br>
 <br>
-<center><h1>Website Under Construction</h1></center>
+<center>
+    <h1>Website Under Construction</h1>
+</center>
 <br>
 <br>
 <br>

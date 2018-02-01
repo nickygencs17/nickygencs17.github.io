@@ -2,260 +2,104 @@
 <html>
 
 <head>
-  <title>nickygencs</title>
-  <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-  <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
-  <link rel="manifest" href="favicons/manifest.json">
-  <link rel="mask-icon" href="favicons/safari-pinned-tab.svg" color="#5bbad5">
-  <meta name="theme-color" content="#ffffff">
+    <title>nickygencs</title>
+    <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
+    <link rel="manifest" href="favicons/manifest.json">
+    <link rel="mask-icon" href="favicons/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
 </head>
-<style>
-  body,
-  html {
-    height: 100%;
-    margin: 0;
-  }
-
-  .bgimg {
-    background-color: #000000;
-    background-image: url("background.jpg");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
-    height: 100%;
-    background-size: cover;
-    position: relative;
-    color: white;
-    font-family: 'Roboto', sans-serif;
-    font-size: 25px;
-    font-weight: bold;
-  }
-
-  .topleft {
-    position: absolute;
-    top: 0;
-    left: 16px;
-  }
-
-  .bottomleft {
-    position: absolute;
-    bottom: 0;
-    left: 16px;
-  }
-
-  .middle {
-    position: absolute;
-    background: black;
-    padding: 2%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-  }
-  @media only screen and (max-width: 600px) {
-        .topnav a:not(:first-child) {
-            display: none;
-        }
-        .topnav a.icon {
-            float: right;
-            display: block;
-        }
-        .middle {
-            position: absolute;
-            background: black;
-            padding: 2%;
-            top: 50%;
-            left: 50%;
-            height: 35%;
-            width: 90%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-        }
-        .middle img{
-          width: 40%;
-        }
-        h1{
-          font-size: 75%;
-        }
-        h2{
-          font-size: 75%;
-        }
-        .bgimg {
-            background-color: #000000;
-            background-image: url("background.jpg");
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-position: center;
-            height: 100%;
-            background-size: cover;
-            position: relative;
-            color: white;
-            font-family: 'Roboto', sans-serif;
-            font-size: 25px;
-            font-weight: bold;
-        }
-        .topnav a:hover {
-            background-color: black !important;
-            color: white !important;
-        }
-    }
-    /* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
-
-    @media screen and (max-width: 800px) {
-        .topnav.responsive {
-            position: relative;
-            z-index: 1;
-        }
-        .topnav.responsive a.icon {
-            position: absolute;
-            z-index: 1;
-        }
-        .topnav.responsive a {
-            float: none;
-            display: block;
-            text-align: left;
-            z-index: 1;
-        }
-    }
-    /* Add a black background color to the top navigation */
-
-    .topnav {
-        background-color: black;
-        overflow: hidden;
-        width: 100%;
-        position: fixed;
-        z-index: 1;
-        visibility: hidden;
-    }
-    /* Style the links inside the navigation bar */
-
-    .topnav a {
-        float: left;
-        display: block;
-        color: #f2f2f2;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-        font-size: 25px;
-    }
-    /* Change the color of links on hover */
-
-    .topnav a:hover {
-        background-color: #ddd;
-        color: black;
-    }
-    /* Hide the link that should open and close the topnav on small screens */
-
-    .topnav .icon {
-        display: none;
-    }
-
-    hr {
-        margin: auto;
-        width: 60%;
-    }
-
-
-
- 
-</style>
+<script src="scripts/navBar.js"></script>
 
 <body>
-
-  <div id="myTopnav" class="topnav">
-    <a href="#home" onclick="closeMobileNav()">Home</a>
-    <a href="#news" onclick="closeMobileNav()">News</a>
-    <a href="#contact" onclick="closeMobileNav()">Contact</a>
-    <a href="#about"onclick="closeMobileNav()">About</a>
-    <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
-</div>
-
-  <div class="bgimg">
-    <div class="topleft">
-
+    <div id="myTopnav" class="topnav">
+        <a href="#home" onclick="closeMobileNav()">Home</a>
+        <a href="#news" onclick="closeMobileNav()">News</a>
+        <a href="#contact" onclick="closeMobileNav()">Contact</a>
+        <a href="#about" onclick="closeMobileNav()">About</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
     </div>
-    <div class="middle">
-      <img src="logo.png">
-      <h2>COMING SOON</h2>
-      <h1>Nicholas Genco</h1>
-      <h2>FULL STACK SOFTWARE ENGINEER</h2>
-      <hr>
-      <p id="demo" style="font-size:30px"></p>
+    <div class="bgimg">
+        <div class="topleft">
+
+        </div>
+        <div class="middle">
+            <img src="images/logo.png">
+            <h2>COMING SOON</h2>
+            <h1>Nicholas Genco</h1>
+            <h2>FULL STACK SOFTWARE ENGINEER</h2>
+            <hr>
+            <p id="demo" style="font-size:30px"></p>
+        </div>
+        <div class="bottomleft">
+        </div>
     </div>
-    <div class="bottomleft">
+    <div class="heading">
+        <h2>About Me</h2>
     </div>
-  </div>
-
-  <br><center> 
- <h5>This website is currently under construction</h5>
- 
- 
-<form method="get" action="NicholasGenco2017.pdf">
-   <button type="submit">Download Resume</button>
-</form>
-<center> 
-
-
     <br>
-  <br>
-  <br>
-  <br>
-
-
-  <script>
-    function myFunction() {
-        var x = document.getElementById("myTopnav");
-        if (x.className === "topnav") {
-            x.className += " responsive";
-            x.style.position = "fixed"
-        } else {
-            x.className = "topnav";
-        }
-    }
-    window.addEventListener('scroll', function (evt) {
-        let nav = document.getElementById("myTopnav");
-        console.log(nav);
-        if (window.pageYOffset >= (window.innerHeight - 200)) {
-
-            nav.style.backgroundColor = "#000";
-            nav.style.visibility = "visible"
-            nav.style.opacity = 1;
-            nav.style.transition = "visibility 0.5s, opacity 0.5s linear";
-
-        } else {
-
-            nav.style.visibility = "hidden";
-            nav.style.opacity = 0;
-            nav.style.transition = "visibility 0.5s, opacity 0.5s linear";
-
-        }
-    });
-
-    function onAboutClick() {
-        closeMobileNav();
-    }
-
-    function onPortfolioClick() {
-        closeMobileNav();
-    }
-
-    function onTitleClick() {
-        closeMobileNav();
-    }
-
-    function onContactClick() {
-        closeMobileNav();
-    }
-
-    function closeMobileNav() {
-        var ul = document.getElementsByClassName('topnav')[0];
-        ul.className = "topnav";
-    }
-</script>
-
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="heading">
+        <h2>Skills</h2>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="heading">
+        <h2>Expierence</h2>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="heading">
+        <h2>Projects</h2>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="heading">
+        <h2>Contact</h2>
+    </div>
+    <center>
+        <h5>This website is currently under construction</h5>
+        <form method="get" action="NicholasGenco2017.pdf">
+            <button type="submit">Download Resume</button>
+        </form>
+        <center>
 </body>
 
 </html>

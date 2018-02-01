@@ -1,321 +1,276 @@
+<!DOCTYPE html>
 <html>
 
 <head>
-    <meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
+  <title>nickygencs</title>
+  <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
+  <link rel="manifest" href="favicons/manifest.json">
+  <link rel="mask-icon" href="favicons/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="theme-color" content="#ffffff">
 </head>
 <style>
-    /* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
+  body,
+  html {
+    height: 100%;
+    margin: 0;
+  }
 
-    body,
-    html {
-        height: 100%;
-        margin: 0;
-    }
+  .bgimg {
+    background-color: #000000;
+    background-image: url("background.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    height: 100%;
+    background-size: cover;
+    position: relative;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+  }
 
-    .bgimg {
-        background-color: #000000;
-        background-image: url("img/wall.jpg");
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-position: center;
-        height: 100%;
-        background-size: cover;
-        position: relative;
-        color: white;
-        font-family: 'Roboto', sans-serif;
-        font-size: 25px;
-        font-weight: bold;
-    }
+  .topleft {
+    position: absolute;
+    top: 0;
+    left: 16px;
+  }
 
-    .topleft {
-        position: absolute;
-        top: 0;
-        left: 16px;
-    }
+  .bottomleft {
+    position: absolute;
+    bottom: 0;
+    left: 16px;
+  }
 
-    .bottomleft {
-        position: absolute;
-        bottom: 0;
-        left: 16px;
-    }
+  .middle {
+    position: absolute;
+    background: black;
+    padding: 2%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
 
-    .middle {
-        position: absolute;
-        background: white;
-        padding: 2%;
-        top: 50%;
-        left: 50%;
-        height: 20%;
-        width: 40%;
-        transform: translate(-50%, -50%);
-        text-align: center;
-    }
+  h1 {
+    font-family: 'Merriweather', serif;
+  }
 
-    @media only screen and (max-width: 600px) {
-        .topnav a:not(:first-child) {
-            display: none;
-        }
-        .topnav a.icon {
-            float: right;
-            display: block;
-        }
-        .middle {
-            position: absolute;
-            background: white;
-            padding: 2%;
-            top: 50%;
-            left: 50%;
-            height: 20%;
-            width: 90%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-        }
-        .bgimg {
-            background-color: #000000;
-            background-image: url("img/mobile_wall.jpg");
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-position: center;
-            height: 100%;
-            background-size: cover;
-            position: relative;
-            color: white;
-            font-family: 'Roboto', sans-serif;
-            font-size: 25px;
-            font-weight: bold;
-        }
-        .topnav a:hover {
-            background-color: black !important;
-            color: white !important;
-        }
-    }
-    /* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
+  hr {
+    margin: auto;
+    width: 40%;
+  }
 
-    @media screen and (max-width: 800px) {
-        .topnav.responsive {
-            position: relative;
-            z-index: 1;
-        }
-        .topnav.responsive a.icon {
-            position: absolute;
-            z-index: 1;
-        }
-        .topnav.responsive a {
-            float: none;
-            display: block;
-            text-align: left;
-            z-index: 1;
-        }
-    }
-    /* Add a black background color to the top navigation */
+  nav {
+    position: fixed;
+    left: 0;
+    visibility: hidden;
+    height:80px;
+    background-color: #000;
+    width: 100%;
+    z-index: 1;
+    color: white;
+    display: inline-block;
+   
+  
+  }
+ul {
+    list-style-type: none;
 
-    .topnav {
-        background-color: black;
-        overflow: hidden;
-        width: 100%;
-        position: fixed;
-        z-index: 1;
-        visibility: hidden;
-    }
-    /* Style the links inside the navigation bar */
+    background-color: black;
+}
 
-    .topnav a {
-        float: left;
-        display: block;
-        color: #f2f2f2;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-        font-size: 25px;
-    }
-    /* Change the color of links on hover */
 
-    .topnav a:hover {
-        background-color: #ddd;
-        color: black;
-    }
-    /* Hide the link that should open and close the topnav on small screens */
 
-    .topnav .icon {
-        display: none;
-    }
+li a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    font-family: 'Merriweather', serif;
+    font-weight: 200;
+    padding-right: 5%;
 
-    hr {
-        margin: auto;
-        width: 60%;
-    }
 
-    img {
-        width: 100%;
-        height: 100%;
-    }
+}
+
+#name{
+   font-family: 'Merriweather', serif;
+   padding: 0;
+   float: left !important;
+   margin-top: 0 !important;
+}
+li {
+    float: right;
+    padding-right: 3%;
+    font-size: 10px;
+  
+}
+
+li:first-child {
+    float: left;
+    padding-left: 3%;
+    font-size: 20px;
+    margin-top: 0 !important;
+}
+h5 {
+  font-family: 'Merriweather', serif;
+  text-align: center;
+  font-size: 20px;
+
+}
+form{
+  text-align: center;
+}
+#object-div {
+  text-align: center;
+}
+@media only screen and (max-width: 480px) {
+.hamburger-icon {
+    position: absolute;
+    display: block;
+    right: 30px;
+    top: 20px;
+    font-size: 25px;
+    color: #fff;
+
+}
+
+}
+
+.hamburger-icon { display: none; }
+@media only screen and (max-width: 480px) { .hamburger-icon { position: absolute; display: block; right: 30px; top: 20px; font-size: 25px; color: #fff; } }
+
+
 </style>
-<script>
-    function myFunction() {
-        var x = document.getElementById("myTopnav");
-        if (x.className === "topnav") {
-            x.className += " responsive";
-            x.style.position = "fixed"
-        } else {
-            x.className = "topnav";
-        }
-    }
+
+<body>
+
+  <nav id="genco-nav">
+  
+   <ul>
+  <li><h1 id="name">Nicholas Genco</h1></li>
+  <li><h1><a href="#top">Home</a></h1></li>
+  <li><h1><a href="#news">News</a></h1></li>
+  <li ><h1><a href="#contact">Contact</a></h1></li>
+ 
+</ul>
+    
+  </nav>
+
+  <div class="bgimg">
+    <div class="topleft">
+
+    </div>
+    <div class="middle">
+      <img height="50%" width="50%" src="logo.png">
+      <h2>COMING SOON</h2>
+      <h1>Nicholas Genco</h1>
+      <h2>FULL STACK SOFTWARE ENGINEER</h2>
+      <hr>
+      <p id="demo" style="font-size:30px"></p>
+    </div>
+    <div class="bottomleft">
+    </div>
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+ <h5>This website is currently under construction</h5>
+ 
+  <div id="object-div">
+<form method="get" action="NicholasGenco2017.pdf">
+   <button type="submit">Download Resume</button>
+</form>
+<object width="1000" height="1000" data="NicholasGenco2017.svg"></object>
+  </div>
+
+
+  <script>
+    var countDownDate = new Date("Aug 19, 2017 15:37:25").getTime();
+    var countdownfunction = setInterval(function () {
+
+
+      var now = new Date().getTime();
+
+      var distance = countDownDate - now;
+
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+        + minutes + "m " + seconds + "s ";
+
+      if (distance < 0) {
+        clearInterval(countdownfunction);
+        document.getElementById("demo").innerHTML = "EXPIRED";
+      }
+    }, 1000);
+
+    let nav = document.getElementById('genco-nav');
     window.addEventListener('scroll', function (evt) {
-        let nav = document.getElementById("myTopnav");
-        console.log(nav);
-        if (window.pageYOffset >= (window.innerHeight - 200)) {
+      console.log('is it workign');
+      if (window.pageYOffset >= (window.innerHeight - 200)) {
 
-            nav.style.backgroundColor = "#000";
-            nav.style.visibility = "visible"
-            nav.style.opacity = 1;
-            nav.style.transition = "visibility 0.5s, opacity 0.5s linear";
+        nav.style.backgroundColor = "#000";
+        nav.style.visibility = "visible"
+        nav.style.opacity = 1;
+        nav.style.transition = "visibility 0.5s, opacity 0.5s linear";
 
-        } else {
+      } else {
 
-            nav.style.visibility = "hidden";
-            nav.style.opacity = 0;
-            nav.style.transition = "visibility 0.5s, opacity 0.5s linear";
+        nav.style.visibility = "hidden";
+        nav.style.opacity = 0;
+        nav.style.transition = "visibility 0.5s, opacity 0.5s linear";
 
-        }
+      }
     });
 
     function onAboutClick() {
-        closeMobileNav();
+    closeMobileNav();
+}
+function onPortfolioClick() {
+    closeMobileNav();
+}
+
+function onTitleClick() {
+    closeMobileNav();
+}
+function onContactClick() {
+    closeMobileNav();
+}
+
+function closeMobileNav() {
+    var ul = document.getElementsByClassName('navigation')[0];
+    ul.className = "navigation";
+}
+
+function onHamburgerClick() {
+    var nav = document.getElementsByClassName('navigation-header')[0];
+    var ul = document.getElementsByClassName('navigation')[0];
+    if (ul.className === 'navigation') {
+        ul.className += " responsive";
+        nav.style.backgroundColor = "#000";
+    } else {
+        ul.className = "navigation";
     }
+    // var socialMediaUl = document.getElementsByClassName('social-media-list')[0];
+    // if (socialMediaUl.className === 'social-media-list') {
+    //     socialMediaUl.className += " responsive";
+    // } else {
+    //     socialMediaUl.className = "social-media-list";
+    // }
+ 
+}
+  </script>
 
-    function onPortfolioClick() {
-        closeMobileNav();
-    }
-
-    function onTitleClick() {
-        closeMobileNav();
-    }
-
-    function onContactClick() {
-        closeMobileNav();
-    }
-
-    function closeMobileNav() {
-        var ul = document.getElementsByClassName('topnav')[0];
-        ul.className = "topnav";
-    }
-</script>
-
-<body>
-    <div id="myTopnav" class="topnav">
-        <a href="#home" onclick="closeMobileNav()">Home</a>
-        <a href="#news" onclick="closeMobileNav()">News</a>
-        <a href="#contact" onclick="closeMobileNav()">Contact</a>
-        <a href="#about"onclick="closeMobileNav()">About</a>
-        <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
-    </div>
-    <div class="bgimg">
-        <div class="topleft">
-
-        </div>
-        <div class="middle" id="logo">
-            <img src="img/logo.png">
-        </div>
-        <div class="bottomleft">
-        </div>
-    </div>
 </body>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<center>
-    <h1>Website Under Construction</h1>
-</center>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 
 </html>

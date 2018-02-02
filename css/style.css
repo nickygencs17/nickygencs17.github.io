@@ -18,6 +18,7 @@ html {
     font-size: 25px;
     font-weight: bold;
 }
+
 .topleft {
     position: absolute;
     top: 0;
@@ -39,6 +40,7 @@ html {
     transform: translate(-50%, -50%);
     text-align: center;
 }
+
 .heading {
     background-color: black;
     color: white;
@@ -47,30 +49,35 @@ html {
     padding-top: .05%;
     padding-bottom: .05%;
     font-family: 'Roboto', sans-serif;
-} 
+}
+
 .item {
     width: 100%;
-  }
-  .item h1{
-      padding-top: 20%;
-  }
-  .item p{
-    width: 100%;
-  }
-  .item img{
-      height: 100%;
-  }
-  
-  .container {
+}
+
+.item h1 {
+    padding-top: 0%;
+}
+
+.item p {
+    width: 90%;
+    font-size: 160%;
+}
+
+.item img {
+    height: 100%;
+}
+
+.container {
     display: flex;
     flex-wrap: wrap;
     font-family: 'Roboto', sans-serif;
-  }
-  .container>div {
-    flex: 5%;
-    box-sizing:border-box
-  }
+}
 
+.container>div {
+    flex: 5%;
+    box-sizing: border-box
+}
 
 @media only screen and (max-width: 600px) {
     .topnav a:not(:first-child) {
@@ -126,38 +133,31 @@ html {
         padding-top: .5%;
         padding-bottom: .5%;
         font-family: 'Roboto', sans-serif;
-    } 
- 
-    .item h1{
+        font-size: 20;
+    }
+    .item h1 {
         text-align: center;
         font-size: 100%;
     }
-    .item p{
-      width: 150%;
-      background-color: red;
-      padding: 0;
-      text-align: center;
+    .item p {
+        width: 150%;
+        padding: 0;
+        text-align: center;
     }
     .container {
         display: flex;
         flex-wrap: wrap;
         font-family: 'Roboto', sans-serif;
         text-align: center;
-      }
-      
-      .container>div {
+    }
+    .container>div {
         flex: 20%;
         box-sizing: border-box;
     }
-      .item img{
+    .item img {
         text-align: center;
+        
     }
-    .item p{
-        width: 100%;
-        background: red;
-    }
- 
-
 }
 
 @media screen and (max-width: 800px) {
@@ -184,21 +184,20 @@ html {
         padding-bottom: .5%;
         font-size: 30px;
         font-family: 'Roboto', sans-serif;
-    } 
+    }
     .container {
         display: flex;
         flex-wrap: wrap;
         font-family: 'Roboto', sans-serif;
         height: 50;
     }
-    .item{
+    .item {
         text-align: center;
     }
-    .item p{
+    .item p {
         width: 100%;
-        background: red;
     }
-    .item h1{
+    .item h1 {
         text-align: center;
         font-size: 100%;
     }
@@ -207,16 +206,11 @@ html {
         flex-wrap: wrap;
         font-family: 'Roboto', sans-serif;
         text-align: center;
-      }
-      .container>div {
+    }
+    .container>div {
         flex: 20%;
         box-sizing: border-box;
     }
-
- 
-
-
-    
 }
 
 .topnav {
@@ -237,7 +231,6 @@ html {
     padding: 14px 16px;
     text-decoration: none;
     font-size: 25px;
-    
 }
 
 .topnav a:hover {
@@ -253,7 +246,8 @@ hr {
     margin: auto;
     width: 60%;
 }
-.left{
+
+.left {
     position: absolute;
     left: 0;
 }

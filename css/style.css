@@ -307,7 +307,7 @@ hr {
         height: 300px;
     }
     .container>div {
-        flex: 2%;
+        flex: 10%;
         box-sizing: border-box;
     }
 }

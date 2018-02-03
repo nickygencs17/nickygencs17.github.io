@@ -229,7 +229,7 @@ html {
         padding: 2%;
         top: 50%;
         left: 50%;
-        height: 80%;
+        height: 50%;
         width: 40%;
         transform: translate(-50%, -50%);
         text-align: center;
@@ -241,6 +241,12 @@ html {
         text-align: center;
         height: 100%;
         padding-left: 10%;
+    }
+    h1 {
+        font-size: 75%;
+    }
+    h2 {
+        font-size: 75%;
     }
 }
 

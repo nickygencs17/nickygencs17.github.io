@@ -304,7 +304,7 @@ hr {
         flex-wrap: wrap;
         font-family: 'Roboto', sans-serif;
         text-align: center;
-        height: 300px;
+        height: 400px;
     }
     .container>div {
         flex: 10%;

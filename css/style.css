@@ -79,7 +79,44 @@ html {
     flex: 5%;
     box-sizing: border-box;
 }
+.topnav {
+    background-color: black;
+    overflow: hidden;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    visibility: hidden;
+    font-family: 'Roboto', sans-serif;
+}
 
+.topnav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.topnav .icon {
+    display: none;
+}
+
+hr {
+    margin: auto;
+    width: 60%;
+}
+
+.left {
+    position: absolute;
+    left: 0;
+}
 @media only screen and (max-width: 1000px) and (orientation : portrait) {
     .topnav a:not(:first-child) {
         display: none;
@@ -267,45 +304,11 @@ html {
         flex-wrap: wrap;
         font-family: 'Roboto', sans-serif;
         text-align: center;
-        height: 500px;
+        height: 300px;
+    }
+    .container>div {
+        flex: 2%;
+        box-sizing: border-box;
     }
 }
 
-.topnav {
-    background-color: black;
-    overflow: hidden;
-    width: 100%;
-    position: fixed;
-    z-index: 1;
-    visibility: hidden;
-    font-family: 'Roboto', sans-serif;
-}
-
-.topnav a {
-    float: left;
-    display: block;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 20px;
-}
-
-.topnav a:hover {
-    background-color: #ddd;
-    color: black;
-}
-
-.topnav .icon {
-    display: none;
-}
-
-hr {
-    margin: auto;
-    width: 60%;
-}
-
-.left {
-    position: absolute;
-    left: 0;
-}

@@ -121,13 +121,16 @@ hr {
 
 #photos {
     /* Prevent vertical gaps */
-    line-height: 0;
+    line-height: 1;
     -webkit-column-count: 5;
     -webkit-column-gap: 0px;
     -moz-column-count: 5;
     -moz-column-gap: 0px;
     column-count: 5;
     column-gap: 0px;
+}
+.grid{
+    height: 300px;
 }
 
 #photos img {
@@ -174,6 +177,12 @@ hr {
     -moz-column-count: 4;
     -webkit-column-count: 4;
     column-count: 4;
+}
+
+#photos > img {
+    padding: 5%;
+    height: 200px !important;
+    width: 200px !important;
 }
 
 @media only screen and (max-width: 1000px) and (orientation: portrait) {

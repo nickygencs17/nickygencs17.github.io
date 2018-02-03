@@ -45,14 +45,14 @@ html {
     background-color: black;
     color: white;
     text-align: left;
-    padding-left: 10%;
-    padding-top: .05%;
-    padding-bottom: .05%;
+    padding-left: 5%;
+    padding-top: .025%;
+    padding-bottom: .025%;
     font-family: 'Roboto', sans-serif;
 }
 
-.item {
-    width: 100%;
+.item img{
+    padding-left: 35%;
 }
 
 .item h1 {
@@ -60,8 +60,8 @@ html {
 }
 
 .item p {
-    width: 90%;
-    font-size: 160%;
+    font-size: 20px;
+    padding-right: 30%;
 }
 
 .item img {
@@ -72,16 +72,18 @@ html {
     display: flex;
     flex-wrap: wrap;
     font-family: 'Roboto', sans-serif;
+    height: 500px;
 }
 
 .container>div {
     flex: 5%;
-    box-sizing: border-box
+    box-sizing: border-box;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 1000px) {
     .topnav a:not(:first-child) {
         display: none;
+        background: black;
     }
     .topnav a.icon {
         float: right;
@@ -118,7 +120,7 @@ html {
         position: relative;
         color: white;
         font-family: 'Roboto', sans-serif;
-        font-size: 25px;
+        font-size: 50px;
         font-weight: bold;
     }
     .topnav a:hover {
@@ -126,41 +128,39 @@ html {
         color: white !important;
     }
     .heading {
-        background-color: black;
+        background-color:black;
         color: white;
         text-align: left;
-        padding-left: 10%;
-        padding-top: .5%;
-        padding-bottom: .5%;
         font-family: 'Roboto', sans-serif;
-        font-size: 20;
+        font-size: 75px;
     }
     .item h1 {
         text-align: center;
-        font-size: 100%;
+        font-size: 75px;
+    }
+    .item h2{
+        text-align: center;
+        font-size: 60px;
+        font-style: italic;
     }
     .item p {
-        width: 150%;
         padding: 0;
         text-align: center;
+        font-size: 40px;
     }
     .container {
         display: flex;
         flex-wrap: wrap;
         font-family: 'Roboto', sans-serif;
         text-align: center;
-    }
-    .container>div {
-        flex: 20%;
-        box-sizing: border-box;
+        height: 1500px;
     }
     .item img {
         text-align: center;
+        height: 100%;
+        padding-left: 0;
         
     }
-}
-
-@media screen and (max-width: 800px) {
     .topnav.responsive {
         position: relative;
         z-index: 1;
@@ -175,42 +175,23 @@ html {
         text-align: left;
         z-index: 1;
     }
-    .heading {
-        background-color: black;
-        color: white;
-        text-align: left;
-        padding-left: 10%;
-        padding-top: .5%;
-        padding-bottom: .5%;
-        font-size: 30px;
-        font-family: 'Roboto', sans-serif;
-    }
-    .container {
-        display: flex;
-        flex-wrap: wrap;
-        font-family: 'Roboto', sans-serif;
-        height: 50;
-    }
-    .item {
+    .topnav a {
+        float: left;
+        display: block;
+        color: #f2f2f2;
         text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 70px !important;
     }
-    .item p {
-        width: 100%;
-    }
-    .item h1 {
-        text-align: center;
-        font-size: 100%;
-    }
-    .container {
-        display: flex;
-        flex-wrap: wrap;
-        font-family: 'Roboto', sans-serif;
-        text-align: center;
+    .item{
+        padding-left: 0;
     }
     .container>div {
-        flex: 20%;
+        flex: auto;
         box-sizing: border-box;
     }
+
 }
 
 .topnav {
@@ -230,7 +211,7 @@ html {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    font-size: 25px;
+    font-size: 20px;
 }
 
 .topnav a:hover {

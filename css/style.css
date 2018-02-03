@@ -310,5 +310,9 @@ hr {
         flex: 10%;
         box-sizing: border-box;
     }
+    .item p{
+        padding-right: 0;
+        font-size: 18px;
+    }
 }
 

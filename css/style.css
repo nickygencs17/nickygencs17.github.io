@@ -4,6 +4,7 @@ html {
     margin: 0;
 }
 
+
 .bgimg {
     background-color: #000000;
     background-image: url("../images/background.jpg");
@@ -18,6 +19,10 @@ html {
     font-size: 25px;
     font-weight: bold;
 }
+.svg-icon svg {
+    height: 1em;
+    width: 1em;
+  }
 
 .topleft {
     position: absolute;
@@ -39,8 +44,17 @@ html {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
+  
 }
-
+.middle img{
+    padding: 5%;
+  
+}
+.middle a{
+    text-decoration: inherit;
+    color: inherit;
+    cursor: auto;
+}
 .heading {
     background-color: black;
     color: white;
@@ -206,9 +220,7 @@ hr {
         width: 90%;
         transform: translate(-50%, -50%);
         text-align: center;
-    }
-    .middle img {
-        width: 40%;
+          position:relative;
     }
     h1 {
         font-size: 75%;

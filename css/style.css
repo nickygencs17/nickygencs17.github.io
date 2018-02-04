@@ -4,7 +4,6 @@ html {
     margin: 0;
 }
 
-
 .bgimg {
     background-color: #000000;
     background-image: url("../images/background.jpg");
@@ -19,10 +18,11 @@ html {
     font-size: 25px;
     font-weight: bold;
 }
+
 .svg-icon svg {
     height: 1em;
     width: 1em;
-  }
+}
 
 .topleft {
     position: absolute;
@@ -44,17 +44,18 @@ html {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-  
 }
-.middle img{
+
+.middle img {
     padding: 5%;
-  
 }
-.middle a{
+
+.middle a {
     text-decoration: inherit;
     color: inherit;
     cursor: auto;
 }
+
 .heading {
     background-color: black;
     color: white;
@@ -143,7 +144,8 @@ hr {
     column-count: 5;
     column-gap: 0px;
 }
-.grid{
+
+.grid {
     height: 300px;
 }
 
@@ -193,7 +195,7 @@ hr {
     column-count: 4;
 }
 
-#photos > img {
+#photos>img {
     height: 200px !important;
     width: 200px !important;
 }
@@ -208,7 +210,7 @@ hr {
         display: block;
     }
     #photos img {
-      padding: 10%;
+        padding: 10%;
     }
     .middle {
         position: absolute;
@@ -220,7 +222,7 @@ hr {
         width: 90%;
         transform: translate(-50%, -50%);
         text-align: center;
-          position:relative;
+        position: relative;
     }
     h1 {
         font-size: 75%;
@@ -310,37 +312,38 @@ hr {
         box-sizing: border-box;
     }
     .card {
-        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
         transition: 0.3s;
         width: 90%;
         border-radius: 5px;
         padding: 2px 16px;
-        margin:auto;
+        margin: auto;
         font-size: 50px;
         font-family: 'Roboto', sans-serif;
     }
-    .card .card-container h4{
-        font-weight:bold !important;
+    .card .card-container h4 {
+        font-weight: bold !important;
         font-size: 60px !important;
     }
-    
     .card:hover {
-        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     }
-    
     img {
         border-radius: 5px 5px 0 0;
     }
-    
     .card-container {
         padding: 2px 16px;
         width: 90%;
     }
-    .card img{
+    .card img {
         width: 500px !important;
     }
-    .card .card-container  p{font-size: 50px}
-    .card .card-container  ul li {font-size: 40px}
+    .card .card-container p {
+        font-size: 50px
+    }
+    .card .card-container ul li {
+        font-size: 40px
+    }
 }
 
 @media only screen and (max-width: 1000px) and (orientation: landscape) {
@@ -365,6 +368,9 @@ hr {
         display: block;
         text-align: left;
         z-index: 1;
+    }
+    .middle img {
+        padding: 0 !important;
     }
     .bgimg {
         background-color: #000000;
@@ -400,9 +406,6 @@ hr {
         transform: translate(-50%, -50%);
         text-align: center;
     }
-    .middle img {
-        width: 30%;
-    }
     .item img {
         text-align: center;
         height: 100%;
@@ -430,38 +433,41 @@ hr {
         font-size: 18px;
     }
     .card {
-        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
         transition: 0.3s;
         width: 75%;
         border-radius: 5px;
         padding: 2px 16px;
-        margin:auto;
+        margin: auto;
         font-size: 30px !important;
-        
     }
-    .card img{
+    .card img {
         width: 500px !important;
     }
 }
+
 .card {
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3s;
     width: 80%;
     border-radius: 5px;
     padding: 2px 16px;
-    margin:auto;
+    margin: auto;
     font-size: 20px;
     font-family: 'Roboto', sans-serif;
 }
-.card .card-container h4{
-    font-weight:bold;
+
+.card .card-container h4 {
+    font-weight: bold;
     font-size: 30px;
 }
-.card img{
+
+.card img {
     width: 250px;
 }
+
 .card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
 img {

@@ -143,6 +143,7 @@ hr {
     -moz-column-gap: 0px;
     column-count: 5;
     column-gap: 0px;
+    padding-left: 100px;
 }
 
 .grid {
@@ -168,6 +169,7 @@ hr {
         -moz-column-count: 3;
         -webkit-column-count: 3;
         column-count: 3;
+        padding-left: 0px !important;
     }
 }
 
@@ -211,6 +213,7 @@ hr {
     }
     #photos img {
         padding: 10%;
+        padding-left: 0px;
     }
     .middle {
         position: absolute;

@@ -1,47 +1,100 @@
-function myFunction() {
-    var x = document.getElementById("myTopnav");
-    if (x.className === "topnav") {
-        x.className += " responsive";
-        x.style.position = "fixed"
+/* Navigation behavior cleanup: accessibility, performance, no globals */
+'use strict';
+
+(() => {
+  const nav = document.getElementById('myTopnav');
+  const menuToggle = document.getElementById('menuToggle');
+  if (!nav) return;
+
+  const closeMobileNav = () => {
+    nav.classList.remove('responsive');
+    if (menuToggle) menuToggle.setAttribute('aria-expanded', 'false');
+  };
+
+  // Toggle mobile menu
+  if (menuToggle) {
+    menuToggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
+      const next = !expanded;
+      menuToggle.setAttribute('aria-expanded', String(next));
+      nav.classList.toggle('responsive', next);
+    });
+
+    // Keyboard support for toggle
+    menuToggle.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        menuToggle.click();
+      }
+    });
+  }
+
+  // Close mobile nav when any nav link is clicked
+  const navLinks = nav.querySelectorAll('a:not(.icon)');
+  navLinks.forEach((a) => {
+    a.addEventListener('click', () => {
+      closeMobileNav();
+    });
+  });
+
+  // Show/hide nav on scroll with rAF to reduce layout thrashing
+  let navVisible = false;
+
+  const applyVisibility = (visible) => {
+    if (visible) {
+      nav.style.visibility = 'visible';
+      nav.style.opacity = '1';
     } else {
-        x.className = "topnav";
+      nav.style.visibility = 'hidden';
+      nav.style.opacity = '0';
     }
-}
-window.addEventListener('scroll', function (evt) {
-    let nav = document.getElementById("myTopnav");
-    if (window.pageYOffset >= (window.innerHeight - 200)) {
+    nav.style.transition = 'visibility 0.5s, opacity 0.5s linear';
+  };
 
-        nav.style.backgroundColor = "#000";
-        nav.style.visibility = "visible"
-        nav.style.opacity = 1;
-        nav.style.transition = "visibility 0.5s, opacity 0.5s linear";
-
-    } else {
-
-        nav.style.visibility = "hidden";
-        nav.style.opacity = 0;
-        nav.style.transition = "visibility 0.5s, opacity 0.5s linear";
-
+  const updateNavVisibility = () => {
+    const threshold = Math.max(window.innerHeight - 200, 0);
+    const shouldShow = window.pageYOffset >= threshold;
+    if (shouldShow !== navVisible) {
+      navVisible = shouldShow;
+      applyVisibility(navVisible);
     }
-});
+  };
 
-function onAboutClick() {
-    closeMobileNav();
-}
+  // Initialize state on load
+  updateNavVisibility();
 
-function onPortfolioClick() {
-    closeMobileNav();
-}
+  // Accessibility: if nav or its children receive focus (keyboard nav), ensure nav is visible
+  nav.addEventListener('focusin', () => {
+    navVisible = true;
+    applyVisibility(true);
+  });
 
-function onTitleClick() {
-    closeMobileNav();
-}
+  let ticking = false;
+  window.addEventListener(
+    'scroll',
+    () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          updateNavVisibility();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    },
+    { passive: true }
+  );
 
-function onContactClick() {
-    closeMobileNav();
-}
+  window.addEventListener(
+    'resize',
+    () => {
+      updateNavVisibility();
+    },
+    { passive: true }
+  );
 
-function closeMobileNav() {
-    var ul = document.getElementsByClassName('topnav')[0];
-    ul.className = "topnav";
-}
+  // Close menu with Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMobileNav();
+  });
+})();

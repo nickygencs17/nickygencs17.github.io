@@ -1,0 +1,51 @@
+# macOS
+.DS_Store
+**/.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+.fseventsd
+.Trashes
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Dependency directories (if added later)
+node_modules/
+bower_components/
+
+# Build output (if any tooling is introduced later)
+dist/
+build/
+.cache/
+.parcel-cache/
+.tmp/
+temp/
+tmp/
+_site/
+.sass-cache/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Editors/IDEs
+.vscode/
+.idea/
+*.code-workspace
+
+# Misc editor swaps
+*.swp
+*.swo

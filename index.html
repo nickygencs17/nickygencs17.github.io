@@ -1,59 +1,273 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <title>nickygencs</title>
-    <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
-    <link rel="manifest" href="favicons/manifest.json">
-    <link rel="mask-icon" href="favicons/safari-pinned-tab.svg" color="#5bbad5">
-    <meta name="theme-color" content="#ffffff">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <script src="scripts/navBar.js"></script>
+  <meta charset="utf-8" />
+  <title>Nicholas Genco — Software Engineer III @ Oracle | Senior Frontend Engineer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Portfolio of Nicholas Genco. Senior Frontend Engineer specializing in React/Preact, TypeScript, scalable UI architecture, design systems, and enterprise frontend performance."
+  />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css?family=Merriweather&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
+
+  <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png" />
+  <link rel="manifest" href="favicons/manifest.json" />
+  <link rel="mask-icon" href="favicons/safari-pinned-tab.svg" color="#000000" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="msapplication-TileColor" content="#000000" />
+  <meta name="msapplication-config" content="favicons/browserconfig.xml" />
+  <link rel="shortcut icon" href="favicons/favicon.ico" />
+
+  <link rel="stylesheet" href="css/style.css" />
 </head>
-
-
 <body>
-    <div id="myTopnav" class="topnav">
-        <a href="#home" onclick="closeMobileNav()">Nicholas Genco</a>
-        <a href="#aboutme" onclick="closeMobileNav()">About Me</a>
-        <a href="#skills" onclick="closeMobileNav()">Skills</a>
-        <a href="#experience" onclick="closeMobileNav()">Experience</a>
-        <a href="#education" onclick="closeMobileNav()">Education</a>
-        <a href="#projects" onclick="closeMobileNav()">Projects</a>
-        <a href="data/NicholasGenco2018_2.pdf" onclick="closeMobileNav()">Resume</a>
-        <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
-    </div>
-    <a name="home"></a>
-    <div class="bgimg">
-        <div class="topleft">
+  <a class="skip-link" href="#main">Skip to main content</a>
 
-        </div>
-        <div class="middle">
-            <img src="images/logo.png" alt="logo">
-            <h1>Nicholas Genco</h1>
-            <h2>FULL STACK SOFTWARE ENGINEER</h2>
-            <a href="mailto:nickygencs@gmail.com">
-                <img src="images/white_icons/close-envelope.svg" width="50" height="50" alt="email_icon">
-            </a>
-            <a href="https://www.linkedin.com/in/nicholas-genco-6a8588a0/" target="_blank">
+  <header>
+    <nav id="myTopnav" class="topnav" role="navigation" aria-label="Primary">
+      <a class="brand" href="#home">Nicholas Genco</a>
 
-                <img src="images/white_icons/linked-in-logo.svg" width="50" height="50" alt="linkedin_icon">
-            </a>
-            <a href="https://github.com/nickygencs17" target="_blank">
-                <img src="images/white_icons/github-big-logo.svg" width="50" height="50" alt="github_icon">
-            </a>
-            <a href="data/NicholasGenco.pdf" target="_blank">
-                <img src="images/white_icons/resume.svg" width="50" height="50" alt="resume_icon">
-            </a>
-            <hr>
-            <p id="demo" style="font-size:30px"></p>
+      <a
+        href="#"
+        class="menu-toggle icon"
+        id="menuToggle"
+        aria-label="Toggle navigation"
+        aria-expanded="false"
+        aria-controls="primaryNav"
+      >
+        ☰ Menu
+      </a>
+
+      <ul id="primaryNav" class="nav-list">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#summary">Summary</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="data/NicholasGenco.pdf" target="_blank" rel="noopener">Resume</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <!-- Hero -->
+    <section id="home" class="hero" aria-labelledby="hero-title">
+      <div class="hero-content" role="group" aria-label="Introduction">
+        <img class="logo" src="images/logo.png" alt="Personal logo for Nicholas Genco" />
+        <h1 id="hero-title">Nicholas Genco</h1>
+        <p class="subtitle">Software Engineer III @ Oracle | Senior Frontend Engineer | React/Preact Ecosystem | Scalable UI Architecture</p>
+        <p class="location" aria-label="Location">New York City Metropolitan Area</p>
+
+        <div class="social-links" aria-label="Social and contact links">
+          <a href="mailto:nickygencs@gmail.com" aria-label="Email Nicholas">
+            <img src="images/white_icons/close-envelope.svg" alt="" />
+          </a>
+          <a href="https://www.linkedin.com/in/nicholas-genco-6a8588a0/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
+            <img src="images/white_icons/linked-in-logo.svg" alt="" />
+          </a>
+          <a href="https://github.com/nickygencs17" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
+            <img src="images/white_icons/github-big-logo.svg" alt="" />
+          </a>
+          <a href="data/NicholasGenco.pdf" target="_blank" rel="noopener" aria-label="Download resume">
+            <img src="images/white_icons/resume.svg" alt="" />
+          </a>
         </div>
-        <div class="bottomleft">
+      </div>
+    </section>
+
+    <!-- Summary -->
+    <section id="summary" class="section" aria-labelledby="summary-heading">
+      <div class="container">
+        <h2 id="summary-heading" class="section-header">Summary</h2>
+        <p class="lead">
+          I build scalable, high-performance frontend architectures for enterprise software.
+        </p>
+        <p>
+          My focus is modernizing legacy systems into maintainable, reusable UI ecosystems using the React/Preact stack,
+          TypeScript, and component-driven design. I specialize in design system engineering, performance optimization,
+          and creating component libraries that accelerate development at scale.
+        </p>
+        <p>
+          At Oracle, I architected reusable Web Component libraries that improved development velocity by over 30% and
+          cut bundle sizes by 40% across multiple enterprise modules. I’ve led the adoption of TypeScript across legacy
+          codebases and helped evolve a more modern engineering workflow for internal teams.
+        </p>
+        <h3 class="section-header" id="strengths">Core Strengths</h3>
+        <ul class="pill-list" aria-labelledby="strengths">
+          <li>React/Preact Ecosystem</li>
+          <li>TypeScript</li>
+          <li>Web Components</li>
+          <li>UI Modernization</li>
+          <li>Design Systems</li>
+          <li>DX Tooling</li>
+          <li>Enterprise Frontend</li>
+        </ul>
+        <p class="lead">
+          Open to connecting with teams looking to improve scalability, UI architecture, developer experience, or modern
+          frontend performance.
+        </p>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" class="section" aria-labelledby="experience-heading">
+      <div class="container">
+        <h2 id="experience-heading" class="section-header">Experience</h2>
+
+        <div class="experience-group" aria-label="Oracle Experience">
+          <h3 class="section-header">Oracle</h3>
+
+          <article class="role" aria-labelledby="oracle-se3-title">
+            <h3 id="oracle-se3-title">Software Engineer III</h3>
+            <p class="meta">August 2022 – Present (3 years 4 months)</p>
+            <ul>
+              <li>Modernizing Oracle’s enterprise UI ecosystem by converting legacy Knockout/JET modules into scalable ES6/TypeScript + Preact Web Components, improving maintainability and shared adoption across product teams.</li>
+              <li>Delivered a reusable component library used across 10+ internal enterprise modules, reducing duplicated logic and increasing developer velocity by 30%.</li>
+              <li>Spearheaded frontend architecture patterns that optimize bundle size and DX workflows; reductions of up to 40% for heavy UI modules.</li>
+              <li>Engineered high-performance client-side components built for real-time data rendering and strict enterprise accessibility needs.</li>
+              <li>Tech: Preact (React ecosystem), TypeScript/ES6+, Web Components, Node.js, HTML5, CSS3, Knockout.</li>
+            </ul>
+          </article>
+
+          <article class="role" aria-labelledby="oracle-se2-title">
+            <h3 id="oracle-se2-title">Software Engineer II</h3>
+            <p class="meta">June 2020 – August 2022 (2 years 3 months) — Greater Boston</p>
+            <ul>
+              <li>Refactored legacy UI systems into flexible shared components that aligned with scalable frontend architecture standards.</li>
+              <li>Led a team of interns converting large JET/JavaScript modules to TypeScript, improving type safety and toolchain consistency across multiple teams.</li>
+              <li>Partnered with UI architects to streamline patterns for reusable components and internal design standards.</li>
+              <li>Tech: TypeScript, ES6, Knockout, Node.js, HTML/CSS.</li>
+            </ul>
+          </article>
+
+          <article class="role" aria-labelledby="oracle-se1-title">
+            <h3 id="oracle-se1-title">Software Engineer I</h3>
+            <p class="meta">March 2019 – June 2020 (1 year 4 months) — Greater Boston Area</p>
+            <ul>
+              <li>Built accessible enterprise UI components with end-to-end design participation.</li>
+              <li>Implemented scalable UI enhancements and resolved production defects across customer-facing modules.</li>
+              <li>Prototyped lazy-loading data providers later leveraged in high-scale environments.</li>
+              <li>Tech: TypeScript, jQuery, Knockout, Node.js, HTML/CSS.</li>
+            </ul>
+          </article>
         </div>
+
+        <article class="role" aria-labelledby="camp-title">
+          <h3 id="camp-title">CAMP Systems International, Inc. — Software Engineer</h3>
+          <p class="meta">March 2018 – February 2019 (1 year) — Ronkonkoma, New York</p>
+          <ul>
+            <li>Developed front-end modules for aviation asset management platforms used by enterprise clients.</li>
+            <li>Ensured compatibility across multiple hardware/third‑party integrations.</li>
+            <li>Tech: C#, Ext JS, ASP.NET, Oracle SQL.</li>
+          </ul>
+        </article>
+
+        <article class="role" aria-labelledby="gpi-title">
+          <h3 id="gpi-title">Garment Printer Ink — Web Developer</h3>
+          <p class="meta">January 2018 – March 2018 (3 months) — Greater New York City Area</p>
+          <ul>
+            <li>Built web modules for the Magento and Joolma platforms.</li>
+            <li>Created relational databases used for shipping, inventory, and e‑commerce.</li>
+            <li>System admin for large e‑commerce business.</li>
+            <li>Tech: Magento, Joolma, JavaScript, CSS, AWS.</li>
+          </ul>
+        </article>
+
+        <article class="role" aria-labelledby="ibinex-title">
+          <h3 id="ibinex-title">Ibinex — Software Engineer</h3>
+          <p class="meta">September 2017 – December 2017 (4 months) — London, United Kingdom</p>
+          <ul>
+            <li>Developed crypto liquidity solutions for brokers and traders.</li>
+            <li>Designed custom tokens according to the Ethereum ERC‑20 standard.</li>
+            <li>Designed and maintained UI for client‑facing information.</li>
+            <li>Implemented features on top of existing WebSocket and RESTful APIs.</li>
+            <li>Tech: Blockchain, Angular 2, PHP, MySQL, Node.js.</li>
+          </ul>
+        </article>
+
+        <article class="role" aria-labelledby="ca-title">
+          <h3 id="ca-title">CA Technologies — Software Engineer Internship</h3>
+          <p class="meta">August 2016 – August 2017 (1 year 1 month) — Greater New York City Area</p>
+          <ul>
+            <li>Applied research in numerous Blockchain technologies.</li>
+            <li>Developed Angular UI components used for company‑wide app development.</li>
+            <li>Designed and documented REST APIs for multi‑platform communication systems.</li>
+            <li>Developed benchmarking and testing programs for end‑to‑end testing.</li>
+            <li>Accelerated startups through seed funding by prototyping innovative solutions.</li>
+            <li>Tech: Java, Spring, REST, Blockchain, Angular 2, Polymer, JavaScript, TypeScript.</li>
+          </ul>
+        </article>
+
+        <article class="role" aria-labelledby="stonybrook-ta-title">
+          <h3 id="stonybrook-ta-title">Stony Brook University — Teaching Assistant</h3>
+          <p class="meta">August 2016 – December 2016 (5 months) — Greater New York City Area</p>
+          <ul>
+            <li>Provided academic tutoring in Computer Science 333: User Interface Development.</li>
+            <li>Helped students create user interfaces with industry‑standard methods.</li>
+            <li>Assisted students with debugging across projects.</li>
+            <li>Tech: HTML, Angular 2, JavaScript, CSS.</li>
+          </ul>
+        </article>
+
+        <article class="role" aria-labelledby="eden2-title">
+          <h3 id="eden2-title">Eden 2 Programs — Direct Support Professional</h3>
+          <p class="meta">August 2014 – August 2016 (2 years 1 month) — Greater New York City Area</p>
+          <ul>
+            <li>Designed and developed mobile software to make tasks more accessible for individuals with developmental disabilities.</li>
+            <li>Approved Medication Administration Personnel (AMAP); maintained hardware used for communication and learning.</li>
+            <li>Obtained Red Cross First Aid and CPR certifications.</li>
+            <li>Tech: C#, Swift, Android.</li>
+          </ul>
+        </article>
+
+        <article class="role" aria-labelledby="anotherstep-title">
+          <h3 id="anotherstep-title">Another Step Inc — IRA Instructor</h3>
+          <p class="meta">April 2010 – August 2014 (4 years 5 months)</p>
+          <ul>
+            <li>Approved Medication Administration Personnel (AMAP); Red Cross First Aid and CPR certifications.</li>
+            <li>Maintained hardware used for communication and learning.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education" class="section" aria-labelledby="education-heading">
+      <div class="container">
+        <h2 id="education-heading" class="section-header">Education</h2>
+        <ul class="edu-list">
+          <li>
+            <span class="degree">Stony Brook University</span> — B.S., Computer Science (2015 – 2018)
+          </li>
+          <li>
+            <span class="degree">Westchester Community College</span> — A.S., Computer Science (2013 – 2015)
+          </li>
+          <li>
+            <span class="degree">Nanuet Senior High School</span> — High School Diploma, General Studies (2003 – 2007)
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <p>© <span id="year"></span> Nicholas Genco • <a href="mailto:nickygencs@gmail.com">nickygencs@gmail.com</a></p>
     </div>
+  </footer>
+
+  <script>
+    // Set current year in footer without blocking rendering
+    document.addEventListener('DOMContentLoaded', function () {
+      var y = document.getElementById('year');
+      if (y) y.textContent = new Date().getFullYear();
+    });
+  </script>
+  <script src="scripts/navBar.js" defer></script>
 </body>
 </html>

@@ -162,9 +162,11 @@ a:focus-visible {
   place-items: center;
   text-align: center;
   padding-top: 4rem; /* space for fixed nav */
-  background:
-    linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0.8)),
-    url("../images/background.jpg") center / cover no-repeat fixed;
+  background-image: linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0.8)), url("../images/background.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: scroll;
 }
 
 .hero-content {
@@ -315,5 +317,23 @@ section {
 @media (prefers-reduced-motion: reduce) {
   .topnav {
     transition: none;
+  }
+}
+
+@media (max-width: 800px) {
+  .hero {
+    /* Use smaller image and disable fixed attachment on mobile to avoid zoom/blank issues */
+    background-image: linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0.8)), url("../images/background_small.png");
+    background-attachment: scroll;
+    background-position: center;
+    background-size: cover;
+  }
+}
+@media (max-width: 480px) {
+  .hero {
+    /* Show full image on very small screens to avoid over-cropping */
+    background-size: contain;
+    background-position: top center;
+    min-height: 85vh;
   }
 }

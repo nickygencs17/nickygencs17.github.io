@@ -8,7 +8,6 @@ Live site: GitHub Pages (user site). This repository contains a static site: ind
 
 - Accessible, semantic HTML with proper landmarks (header, nav, main, footer)
 - Keyboard/screen reader friendly:
-  - Skip link
   - Accessible mobile nav toggle with aria-controls/aria-expanded
   - Focus-in behavior ensures the fixed nav is visible for keyboard users
 - Clean, minimal CSS focused only on used classes

@@ -316,14 +316,8 @@ section {
 @media (max-width: 800px) {
   .hero {
     /* Use smaller image and disable fixed attachment on mobile to avoid zoom/blank issues */
-    /* Fallback background for small screens */
-    background-image: linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0.8)), url("../images/optimized/background-640.jpg");
-    /* Modern formats */
-    background-image: linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0.8)), image-set(
-      url("../images/optimized/background-640.avif") type("image/avif"),
-      url("../images/optimized/background-640.webp") type("image/webp"),
-      url("../images/optimized/background-640.jpg") type("image/jpeg")
-    );
+    /* Mobile background: restore PNG asset */
+    background-image: linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0.8)), url("../images/background_small.png");
     background-attachment: scroll;
     background-position: center;
     background-size: cover;

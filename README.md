@@ -35,7 +35,6 @@ Live site: GitHub Pages (user site). This repository contains a static site: ind
 - Landmarks: header/nav/main/footer
 - Headings: logical hierarchy with aria-labelledby for sections
 - Keyboard:
-  - Skip to main link
   - Burger menu is keyboard-activatable (Enter/Space) and updates aria-expanded
   - Escape closes mobile nav
   - Focusing any nav item makes the fixed nav visible

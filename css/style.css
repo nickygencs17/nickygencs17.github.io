@@ -23,10 +23,8 @@ body {
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: 'Roboto', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  font-family: 'Roboto', system-ui, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
   line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 a {
@@ -153,8 +151,7 @@ a:focus-visible {
   /* Modern formats with responsive sources */
   background-image: linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0.8)), image-set(
     url("../images/optimized/background-1024.avif") type("image/avif"),
-    url("../images/optimized/background-1024.webp") type("image/webp"),
-    url("../images/optimized/background-1024.jpg") type("image/jpeg")
+    url("../images/optimized/background-1024.webp") type("image/webp")
   );
   background-position: center;
   background-repeat: no-repeat;
@@ -209,7 +206,7 @@ a:focus-visible {
   padding: 0.4rem;
   border-radius: 8px;
   background: var(--surface);
-  border: 1px solid var(--surface);
+  border: 1px solid rgba(255, 255, 255, 0.12);
 }
 .social-links a:hover,
 .social-links a:focus-visible {
@@ -433,8 +430,7 @@ section {
     /* Modern formats */
     background-image: linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0.8)), image-set(
       url("../images/optimized/background-1600.avif") type("image/avif"),
-      url("../images/optimized/background-1600.webp") type("image/webp"),
-      url("../images/optimized/background-1600.jpg") type("image/jpeg")
+      url("../images/optimized/background-1600.webp") type("image/webp")
     );
   }
 }

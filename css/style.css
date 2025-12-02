@@ -150,12 +150,6 @@ a:focus-visible {
   isolation: isolate;
   /* Fallback background */
   background-image: url("../images/background.jpg");
-  /* Modern formats with responsive sources */
-  background-image: image-set(
-    url("../images/optimized/background-1024.avif") type("image/avif"),
-    url("../images/optimized/background-1024.webp") type("image/webp"),
-    url("../images/optimized/background-1600.jpg") type("image/jpeg")
-  );
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -441,11 +435,5 @@ section {
   .hero {
     /* Fallback first */
     background-image: url("../images/optimized/background-1600.jpg");
-    /* Modern formats */
-    background-image: image-set(
-      url("../images/optimized/background-1600.avif") type("image/avif"),
-      url("../images/optimized/background-1600.webp") type("image/webp"),
-      url("../images/optimized/background-1600.jpg") type("image/jpeg")
-    );
   }
 }

@@ -10,6 +10,7 @@
  * Example:
  * <p class="meta" data-start="2022-08-01">August 2022 – Present (<span data-tenure></span>)</p>
  */
+'use strict';
 
 (() => {
   // Compute full calendar months between two dates (no partial-month overcount)

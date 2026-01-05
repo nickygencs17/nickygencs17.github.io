@@ -97,4 +97,101 @@
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeMobileNav();
   });
+
+  // Scroll spy: highlight nav link for visible section
+  const sectionLinks = Array.from(document.querySelectorAll('#primaryNav a[href^="#"]'));
+  const linkById = new Map(
+    sectionLinks
+      .map(a => {
+        try {
+          const id = decodeURIComponent(a.getAttribute('href') || '').replace(/^#/, '');
+          return id ? [id, a] : null;
+        } catch {
+          return null;
+        }
+      })
+      .filter(Boolean)
+  );
+
+  const setActive = (id) => {
+    sectionLinks.forEach(a => {
+      a.classList.remove('active');
+      a.removeAttribute('aria-current');
+    });
+    const link = linkById.get(id);
+    if (link) {
+      link.classList.add('active');
+      link.setAttribute('aria-current', 'true');
+    }
+  };
+
+  const observedSections = Array.from(document.querySelectorAll('main section[id]'))
+    .filter(sec => linkById.has(sec.id));
+
+  if (observedSections.length) {
+    // Use a central band so the active link switches when the section reaches the middle of the viewport
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActive(entry.target.id);
+        }
+      });
+    }, {
+      root: null,
+      rootMargin: '-50% 0px -50% 0px',
+      threshold: 0
+    });
+
+    observedSections.forEach(sec => io.observe(sec));
+
+    // Set initial active based on current scroll position on load
+    const onLoadSet = () => {
+      const current = observedSections.find(sec => {
+        const r = sec.getBoundingClientRect();
+        const vh = window.innerHeight || document.documentElement.clientHeight;
+        const center = vh / 2;
+        return r.top <= center && r.bottom >= center;
+      });
+      setActive((current && current.id) || (linkById.has('home') ? 'home' : observedSections[0].id));
+    };
+    window.requestAnimationFrame(onLoadSet);
+
+    // Immediate visual feedback when clicking a nav link
+    sectionLinks.forEach(a => {
+      a.addEventListener('click', () => {
+        const id = a.getAttribute('href')?.replace('#', '') || '';
+        if (id) setActive(id);
+      });
+    });
+
+    // Ensure last section activates when reaching page bottom (IO may not fire if the last section can't reach the viewport center)
+    const activateLastIfAtBottom = () => {
+      const doc = document.documentElement;
+      const atBottom = Math.ceil(window.innerHeight + window.scrollY) >= Math.floor(doc.scrollHeight - 1);
+      if (atBottom) {
+        const last = observedSections[observedSections.length - 1];
+        if (last) setActive(last.id);
+      }
+    };
+
+    // Throttle with rAF similar to other scroll work
+    let tickingSpyBottom = false;
+    window.addEventListener(
+      'scroll',
+      () => {
+        if (!tickingSpyBottom) {
+          window.requestAnimationFrame(() => {
+            activateLastIfAtBottom();
+            tickingSpyBottom = false;
+          });
+          tickingSpyBottom = true;
+        }
+      },
+      { passive: true }
+    );
+
+    // Re-evaluate on resize and once on load as well
+    window.addEventListener('resize', activateLastIfAtBottom, { passive: true });
+    window.requestAnimationFrame(activateLastIfAtBottom);
+  }
 })();

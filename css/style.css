@@ -243,6 +243,116 @@ section {
   background: transparent;
 }
 
+/* Visual bands and layout helpers for scannability */
+.band {
+  background: rgba(255, 255, 255, 0.03);
+  border-top: 1px solid var(--surface);
+  border-bottom: 1px solid var(--surface);
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1.25rem;
+  align-items: start;
+}
+@media (max-width: 900px) {
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.prose {
+  max-width: 65ch;
+}
+
+.info-card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--surface);
+  border-radius: 12px;
+  padding: 1rem;
+}
+.info-card + .info-card {
+  margin-top: 0.75rem;
+}
+
+/* FAQ cards */
+#faq details {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--surface);
+  border-radius: 10px;
+  margin: 0.5rem 0;
+  overflow: hidden;
+}
+#faq summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 0.75rem 0.9rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+#faq summary::-webkit-details-marker {
+  display: none;
+}
+#faq summary::after {
+  content: "▾";
+  margin-left: auto;
+  transition: transform 0.2s ease;
+  color: var(--muted);
+}
+#faq details[open] summary::after {
+  transform: rotate(-180deg);
+}
+#faq details > p {
+  padding: 0.75rem 0.9rem 0.9rem;
+  margin: 0;
+  color: var(--muted);
+  border-top: 1px solid var(--surface);
+}
+
+/* Experience timeline */
+.timeline .container {
+  position: relative;
+}
+.timeline .experience-group {
+  border-top: none;
+  padding-top: 0.5rem;
+  margin-top: 0.5rem;
+}
+.timeline .role {
+  position: relative;
+  margin: 1rem 0 1rem 2rem;
+  padding: 0.9rem 0.9rem 0.9rem 1rem;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--surface);
+  border-left: 3px solid var(--accent);
+  border-radius: 10px;
+}
+.timeline .role::before {
+  content: "";
+  position: absolute;
+  left: -1.15rem;
+  top: 0.95rem;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 4px rgba(255, 165, 0, 0.15);
+}
+.timeline .role h3 {
+  margin-top: 0;
+}
+
+/* Company header inside the timeline groups (normalize Oracle header) */
+.timeline .experience-group > h3.section-header {
+  margin: 0.5rem 0 0.25rem 2rem;
+  font-size: 1.15rem;
+  font-family: inherit;
+  color: var(--muted);
+}
+
 .lead {
   font-size: 1.05rem;
   color: var(--muted);

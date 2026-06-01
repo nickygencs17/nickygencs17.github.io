@@ -404,6 +404,52 @@ section {
   margin-top: 0.75rem;
 }
 
+/* Selected work */
+.case-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.case-study {
+  min-width: 0;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.case-kicker {
+  margin: 0 0 0.35rem 0;
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.case-study h3 {
+  margin: 0 0 0.6rem 0;
+  font-size: 1.08rem;
+}
+
+.case-study p {
+  margin: 0 0 0.75rem 0;
+  color: var(--muted);
+}
+
+.case-outcomes {
+  margin: 0.5rem 0 0 1.1rem;
+  padding: 0;
+  color: var(--muted);
+}
+
+@media (max-width: 900px) {
+  .case-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* FAQ cards */
 #faq details {
   background: var(--panel);
@@ -555,6 +601,101 @@ section {
   padding: 1.5rem 0;
   text-align: center;
   font-size: 0.95rem;
+}
+
+/* Resume page */
+.resume-page #main {
+  padding-top: 4.5rem;
+}
+
+.resume-hero {
+  border-bottom: 1px solid var(--border);
+}
+
+.resume-hero h1 {
+  margin: 0;
+  font-family: 'Merriweather', Georgia, 'Times New Roman', serif;
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  line-height: 1.15;
+}
+
+.resume-title {
+  margin: 0.35rem 0 0.75rem 0;
+  color: var(--muted);
+  font-size: 1.15rem;
+}
+
+.resume-contact,
+.resume-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.9rem;
+  align-items: center;
+  margin-top: 0.9rem;
+}
+
+.resume-contact {
+  color: var(--muted);
+}
+
+.button-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.5rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--control-bg);
+  color: var(--text);
+  padding: 0.45rem 0.8rem;
+  font-weight: 600;
+}
+
+.button-link:hover,
+.button-link:focus-visible {
+  background: var(--control-hover);
+  text-decoration: none;
+}
+
+.resume-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(260px, 0.85fr);
+  gap: 1.25rem;
+  align-items: start;
+}
+
+.resume-panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.resume-panel + .resume-panel,
+.resume-role + .resume-role {
+  margin-top: 1rem;
+}
+
+.resume-role h3,
+.resume-panel h3 {
+  margin: 0 0 0.3rem 0;
+}
+
+.resume-role .meta {
+  color: var(--muted);
+  margin: 0 0 0.55rem 0;
+}
+
+.resume-role ul,
+.resume-panel ul {
+  margin: 0.5rem 0 0 1.1rem;
+  padding: 0;
+}
+
+@media (max-width: 900px) {
+  .resume-layout {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ===== Reduced motion ===== */

@@ -17,6 +17,24 @@ const styles = readProjectFile('../css/style.css');
 const themeScript = readProjectFile('../scripts/theme.js');
 const navBarScript = readProjectFile('../scripts/navBar.js');
 const resumeSource = readProjectFile('../data/NicholasGenco.resume.html');
+const resumePage = readProjectFile('../resume.html');
+const sitemap = readProjectFile('../sitemap.xml');
+const packageJson = readProjectFile('../package.json');
+
+const readProjectBuffer = (path) => readFileSync(new URL(path, import.meta.url));
+
+const readPngSize = (path) => {
+  const image = readProjectBuffer(path);
+  return {
+    width: image.readUInt32BE(16),
+    height: image.readUInt32BE(20)
+  };
+};
+
+const extractJsonLd = (html) => {
+  const scripts = [...html.matchAll(/<script type="application\/ld\+json">\s*([\s\S]*?)\s*<\/script>/g)];
+  return scripts.map(([, json]) => JSON.parse(json));
+};
 
 const createElement = () => {
   const listeners = new Map();
@@ -253,6 +271,80 @@ test('site copy prioritizes senior frontend platform work with consulting second
   assert.match(index, /Frontend Platform Architecture/);
   assert.match(index, /Selective Custom Software Consulting/);
   assert.doesNotMatch(index, /Open to building custom websites, software, and applications for businesses and individuals\./);
+});
+
+test('homepage uses ProfilePage structured data and avoids FAQPage markup', () => {
+  const jsonLd = extractJsonLd(index);
+  const graphNodes = jsonLd.flatMap((entry) => entry['@graph'] ?? [entry]);
+  const profilePage = graphNodes.find((entry) => entry['@type'] === 'ProfilePage');
+  const person = graphNodes.find((entry) => entry['@id'] === 'https://www.nicholasgenco.com/#person');
+  const service = graphNodes.find((entry) => entry['@id'] === 'https://www.nicholasgenco.com/#consulting');
+
+  assert.ok(profilePage, 'Expected ProfilePage JSON-LD');
+  assert.equal(profilePage.mainEntity['@id'], 'https://www.nicholasgenco.com/#person');
+  assert.equal(profilePage.url, 'https://www.nicholasgenco.com/');
+  assert.equal(profilePage.dateModified, '2026-06-01');
+  assert.deepEqual(profilePage.hasPart.map((part) => part.name), [
+    'Oracle Enterprise UI Modernization',
+    'Reusable Enterprise Component Library',
+    'Accessible High-Performance Data Interfaces'
+  ]);
+  assert.equal(person.name, 'Nicholas Genco');
+  assert.equal(person.jobTitle, 'Senior Frontend Platform Engineer');
+  assert.match(person.description, /enterprise UI modernization/i);
+  assert.deepEqual(person.sameAs, [
+    'https://www.linkedin.com/in/nicholas-genco-6a8588a0/',
+    'https://github.com/nickygencs17'
+  ]);
+  assert.equal(service.provider['@id'], 'https://www.nicholasgenco.com/#person');
+  assert.equal(graphNodes.some((entry) => entry['@type'] === 'FAQPage'), false);
+});
+
+test('homepage includes selected work case studies for richer search context', () => {
+  assert.match(index, /<li><a href="#selected-work">Work<\/a><\/li>/);
+  assert.match(index, /<section id="selected-work" class="section band" aria-labelledby="selected-work-heading">/);
+  assert.match(index, /id="oracle-ui-modernization"/);
+  assert.match(index, /Oracle Enterprise UI Modernization/);
+  assert.match(index, /Reusable Enterprise Component Library/);
+  assert.match(index, /Accessible High-Performance Data Interfaces/);
+  assert.match(index, /legacy Knockout\/JET interfaces/);
+});
+
+test('homepage advertises an indexable resume page and large social preview image', () => {
+  assert.match(index, /<meta property="og:image" content="https:\/\/www\.nicholasgenco\.com\/images\/nicholas-genco-social-preview\.png">/);
+  assert.match(index, /<meta property="og:image:width" content="1200">/);
+  assert.match(index, /<meta property="og:image:height" content="630">/);
+  assert.match(index, /<meta name="twitter:image" content="https:\/\/www\.nicholasgenco\.com\/images\/nicholas-genco-social-preview\.png">/);
+  assert.match(index, /<a href="resume\.html">Resume<\/a>/);
+
+  assert.deepEqual(readPngSize('../images/nicholas-genco-social-preview.png'), {
+    width: 1200,
+    height: 630
+  });
+});
+
+test('resume html page is crawlable and links to the PDF resume', () => {
+  assert.match(resumePage, /<!DOCTYPE html>/);
+  assert.match(resumePage, /<title>Nicholas Genco Resume — Senior Frontend Platform Engineer<\/title>/);
+  assert.match(resumePage, /<meta name="description" content="HTML resume for Nicholas Genco/);
+  assert.match(resumePage, /<link rel="canonical" href="https:\/\/www\.nicholasgenco\.com\/resume\.html">/);
+  assert.match(resumePage, /<main id="main">/);
+  assert.match(resumePage, /Senior Frontend Platform Engineer/);
+  assert.match(resumePage, /Enterprise UI modernization/);
+  assert.match(resumePage, /<a href="data\/NicholasGenco\.pdf"[^>]*>Download PDF<\/a>/);
+  assert.match(resumePage, /<a href="index\.html#summary">Portfolio<\/a>/);
+});
+
+test('sitemap includes lastmod dates for the homepage, resume page, and PDF', () => {
+  assert.match(sitemap, /<loc>https:\/\/www\.nicholasgenco\.com\/<\/loc>\s*<lastmod>2026-06-01<\/lastmod>/);
+  assert.match(sitemap, /<loc>https:\/\/www\.nicholasgenco\.com\/resume\.html<\/loc>\s*<lastmod>2026-06-01<\/lastmod>/);
+  assert.match(sitemap, /<loc>https:\/\/www\.nicholasgenco\.com\/data\/NicholasGenco\.pdf<\/loc>\s*<lastmod>2026-06-01<\/lastmod>/);
+});
+
+test('html lint validates every crawlable HTML page', () => {
+  const parsedPackage = JSON.parse(packageJson);
+
+  assert.equal(parsedPackage.scripts['lint:html'], 'html-validate index.html resume.html data/NicholasGenco.resume.html');
 });
 
 test('resume source mirrors the hybrid positioning used on the site', () => {

@@ -238,6 +238,15 @@ test('hero background advertises optimized image-set sources', () => {
   assert.match(styles, /background-1600\.webp/);
 });
 
+test('small mobile hero keeps the background image covering the viewport', () => {
+  const smallMobileHeroMatch = styles.match(/@media \(max-width: 480px\) \{[\s\S]*?\.hero \{([\s\S]*?)\n  \}/);
+
+  assert.ok(smallMobileHeroMatch, 'Expected small mobile hero styles');
+  assert.match(smallMobileHeroMatch[1], /background-size:\s*cover;/);
+  assert.match(smallMobileHeroMatch[1], /background-position:\s*center;/);
+  assert.doesNotMatch(smallMobileHeroMatch[1], /background-size:\s*contain;/);
+});
+
 test('site copy prioritizes senior frontend platform work with consulting secondary', () => {
   assert.match(index, /Senior Frontend Platform Engineer/);
   assert.match(index, /I modernize complex product interfaces into accessible, reusable frontend platforms\./);

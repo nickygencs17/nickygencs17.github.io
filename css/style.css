@@ -582,10 +582,10 @@ section {
 }
 @media (max-width: 480px) {
   .hero {
-    /* Show full image on very small screens to avoid over-cropping */
-    background-size: contain;
-    background-position: top center;
-    min-height: 85vh;
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    min-height: 100svh;
   }
 }
 

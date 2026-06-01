@@ -621,22 +621,22 @@ section {
 }
 
 /* Staggered delays for Name: "Nicholas" (8 spans) + " Genco" (6 spans inside strong) */
-#hero-title > span:nth-child(2)  { animation-delay: 0s; }
-#hero-title > span:nth-child(3)  { animation-delay: 0.05s; }
-#hero-title > span:nth-child(4)  { animation-delay: 0.10s; }
-#hero-title > span:nth-child(5)  { animation-delay: 0.15s; }
-#hero-title > span:nth-child(6)  { animation-delay: 0.20s; }
-#hero-title > span:nth-child(7)  { animation-delay: 0.25s; }
-#hero-title > span:nth-child(8)  { animation-delay: 0.30s; }
-#hero-title > span:nth-child(9)  { animation-delay: 0.35s; }
+#hero-title > span:nth-child(1)  { animation-delay: 0s; }
+#hero-title > span:nth-child(2)  { animation-delay: 0.05s; }
+#hero-title > span:nth-child(3)  { animation-delay: 0.10s; }
+#hero-title > span:nth-child(4)  { animation-delay: 0.15s; }
+#hero-title > span:nth-child(5)  { animation-delay: 0.20s; }
+#hero-title > span:nth-child(6)  { animation-delay: 0.25s; }
+#hero-title > span:nth-child(7)  { animation-delay: 0.30s; }
+#hero-title > span:nth-child(8)  { animation-delay: 0.35s; }
 
 /* Continue delay sequence into the last name spans */
-#hero-title > span:nth-child(10) { animation-delay: 0.40s; }
-#hero-title > span:nth-child(11) { animation-delay: 0.45s; }
-#hero-title > span:nth-child(12) { animation-delay: 0.50s; }
-#hero-title > span:nth-child(13) { animation-delay: 0.55s; }
-#hero-title > span:nth-child(14) { animation-delay: 0.60s; }
-#hero-title > span:nth-child(15) { animation-delay: 0.65s; }
+#hero-title > span:nth-child(9)  { animation-delay: 0.40s; }
+#hero-title > span:nth-child(10) { animation-delay: 0.45s; }
+#hero-title > span:nth-child(11) { animation-delay: 0.50s; }
+#hero-title > span:nth-child(12) { animation-delay: 0.55s; }
+#hero-title > span:nth-child(13) { animation-delay: 0.60s; }
+#hero-title > span:nth-child(14) { animation-delay: 0.65s; }
 
 /* Subtitle animation */
 #hero-subtitle.animate span {

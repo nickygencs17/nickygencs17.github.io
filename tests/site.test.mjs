@@ -210,18 +210,20 @@ test('styles define both dark and light theme tokens', () => {
   assert.match(styles, /color-scheme:\s*light/);
 });
 
-test('hero title exposes a clean accessible name while decorative letters are hidden', () => {
+test('hero title exposes one readable name without duplicate text nodes', () => {
   const titleMatch = index.match(/<h1\b[^>]*id="hero-title"[\s\S]*?<\/h1>/);
 
   assert.ok(titleMatch, 'Expected hero title markup');
+  assert.match(index, /<span id="hero-title-label" hidden>Nicholas Genco<\/span>/);
+  assert.match(titleMatch[0], /\baria-labelledby="hero-title-label"/);
   assert.doesNotMatch(titleMatch[0], /\baria-label=/);
-  assert.match(titleMatch[0], /<span class="sr-only">Nicholas Genco<\/span>/);
+  assert.doesNotMatch(titleMatch[0], /<span class="sr-only">Nicholas Genco<\/span>/);
   assert.match(titleMatch[0], /<span aria-hidden="true">N<\/span>/);
   assert.doesNotMatch(titleMatch[0], /<span>N<\/span>/);
-  assert.match(styles, /\.sr-only\s*{/);
   assert.match(styles, /#hero-title span\[aria-hidden="true"\]\s*{/);
   assert.doesNotMatch(styles, /#hero-title\s+span\s*{/);
-  assert.match(styles, /#hero-title > span:nth-child\(15\)\s*{/);
+  assert.match(styles, /#hero-title > span:nth-child\(14\)\s*{/);
+  assert.doesNotMatch(styles, /#hero-title > span:nth-child\(15\)\s*{/);
 });
 
 test('hero background advertises optimized image-set sources', () => {

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="utf-8">
   <title>Nicholas Genco — Senior Full Stack Engineer</title>
@@ -36,9 +36,9 @@
   <link rel="icon" type="image/png" sizes="256x256" href="favicons/android-chrome-256x256.png">
   <link rel="icon" type="image/x-icon" href="favicons/favicon.ico">
   <link rel="manifest" href="favicons/manifest.json">
-  <link rel="mask-icon" href="favicons/safari-pinned-tab.svg" color="#000000">
-  <meta name="theme-color" content="#000000">
-  <meta name="msapplication-TileColor" content="#000000">
+  <link rel="mask-icon" href="favicons/safari-pinned-tab.svg" color="#05070a">
+  <meta name="theme-color" content="#05070a">
+  <meta name="msapplication-TileColor" content="#05070a">
   <meta name="msapplication-config" content="favicons/browserconfig.xml">
   <link rel="shortcut icon" href="favicons/favicon.ico">
 
@@ -133,17 +133,6 @@
     <nav id="myTopnav" class="topnav" aria-label="Primary">
       <a class="brand" href="#home">Nicholas Genco</a>
 
-      <a
-        href="#"
-        class="menu-toggle icon"
-        id="menuToggle"
-        aria-label="Toggle navigation"
-        aria-expanded="false"
-        aria-controls="primaryNav"
-      >
-        ☰ Menu
-      </a>
-
       <ul id="primaryNav" class="nav-list">
         <li><a href="#home">Home</a></li>
         <li><a href="#summary">Summary</a></li>
@@ -152,6 +141,32 @@
         <li><a href="#education">Education</a></li>
         <li><a href="data/NicholasGenco.pdf" target="_blank" rel="noopener">Resume</a></li>
       </ul>
+
+      <div class="nav-actions">
+        <button
+          type="button"
+          class="theme-toggle"
+          id="themeToggle"
+          role="switch"
+          aria-checked="false"
+          aria-label="Light mode"
+        >
+          <span class="theme-toggle__icon" data-theme-icon aria-hidden="true">☾</span>
+          <span class="theme-toggle__label" data-theme-label>Dark</span>
+        </button>
+
+        <button
+          type="button"
+          class="menu-toggle icon"
+          id="menuToggle"
+          aria-label="Toggle navigation"
+          aria-expanded="false"
+          aria-controls="primaryNav"
+        >
+          <span aria-hidden="true">☰</span>
+          <span>Menu</span>
+        </button>
+      </div>
     </nav>
   </header>
 
@@ -440,6 +455,7 @@
       if (y) y.textContent = new Date().getFullYear();
     });
   </script>
+  <script src="scripts/theme.js" defer></script>
   <script src="scripts/tenure.js" defer></script>
   <script src="scripts/navBar.js" defer></script>
 </body>

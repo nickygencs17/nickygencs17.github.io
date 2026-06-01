@@ -6,9 +6,10 @@
   "type": "module",
   "scripts": {
     "optimize:images": "node scripts/optimize-images.mjs",
+    "test": "node --test tests/*.test.mjs",
     "lint:html": "html-validate index.html",
     "lint:links": "linkinator --timeout 150000 --concurrency 20 --recurse --skip \"mailto:|tel:|fonts.googleapis.com|fonts.gstatic.com|^https?://\" index.html",
-    "lint": "npm run lint:html && npm run lint:links"
+    "lint": "npm test && npm run lint:html && npm run lint:links"
   },
   "devDependencies": {
     "html-validate": "^8.0.0",

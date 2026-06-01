@@ -12,6 +12,7 @@ Live site: GitHub Pages (user site). This repository contains a static site: `in
   - Focus-in behavior ensures the fixed nav is visible for keyboard users
 - Clean, minimal CSS focused only on used classes
 - Lean JS for navigation behavior (no globals, passive scroll, `requestAnimationFrame`)
+- Accessible light/dark theme toggle that defaults to dark mode and persists the visitor's choice
 - Favicon set updated and normalized (`manifest.json`, `browserconfig.xml`, mask icon, ICO)
 - Dynamic tenure calculation for experience dates (automatically updates “Present (X years Y months)”)
 
@@ -19,8 +20,10 @@ Live site: GitHub Pages (user site). This repository contains a static site: `in
 
 - `index.html` — main page content (hero, summary, experience, education)
 - `css/style.css` — tokens + layout, nav, hero, sections, footer; no legacy/unused styles
-- `scripts/navBar.js` — nav toggle, scroll-based visibility, a11y helpers
+- `scripts/navBar.js` — mobile nav toggle, scroll spy, a11y helpers
+- `scripts/theme.js` — default-dark light/dark mode toggle with guarded localStorage persistence
 - `scripts/tenure.js` — computes and injects dynamic tenure text for roles
+- `tests/site.test.mjs` — static and JS behavior smoke tests
 - `images/` — logo, background, social icon SVGs
 - `favicons/` — favicon set (ico, pngs, safari pinned tab, manifest, browserconfig)
 
@@ -30,6 +33,9 @@ Live site: GitHub Pages (user site). This repository contains a static site: `in
   - macOS: `open index.html`
   - Or double-click `index.html` in Finder
 - No build step required.
+- Run checks:
+  - `npm test`
+  - `npm run lint`
 
 ## Accessibility
 
@@ -37,8 +43,9 @@ Live site: GitHub Pages (user site). This repository contains a static site: `in
 - Headings: logical hierarchy with `aria-labelledby` for sections
 - Keyboard:
   - Burger menu is keyboard-activatable (Enter/Space) and updates `aria-expanded`
+  - Theme toggle is exposed as a switch and updates `aria-checked`
   - Escape closes mobile nav
-  - Focusing any nav item makes the fixed nav visible
+- Fixed navigation remains visible so keyboard users can reach primary links and theme controls immediately
 - External links use `rel="noopener noreferrer"` where applicable
 - Decorative icon images have empty `alt` and accessible link labels
 

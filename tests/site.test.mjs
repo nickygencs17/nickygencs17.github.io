@@ -16,6 +16,7 @@ const index = readProjectFile('../index.html');
 const styles = readProjectFile('../css/style.css');
 const themeScript = readProjectFile('../scripts/theme.js');
 const navBarScript = readProjectFile('../scripts/navBar.js');
+const resumeSource = readProjectFile('../data/NicholasGenco.resume.html');
 
 const createElement = () => {
   const listeners = new Map();
@@ -207,6 +208,47 @@ test('styles define both dark and light theme tokens', () => {
   assert.match(styles, /\[data-theme="light"\]\s*{[\s\S]*--bg:/);
   assert.match(styles, /color-scheme:\s*dark/);
   assert.match(styles, /color-scheme:\s*light/);
+});
+
+test('hero title exposes a clean accessible name while decorative letters are hidden', () => {
+  const titleMatch = index.match(/<h1\b[^>]*id="hero-title"[\s\S]*?<\/h1>/);
+
+  assert.ok(titleMatch, 'Expected hero title markup');
+  assert.doesNotMatch(titleMatch[0], /\baria-label=/);
+  assert.match(titleMatch[0], /<span class="sr-only">Nicholas Genco<\/span>/);
+  assert.match(titleMatch[0], /<span aria-hidden="true">N<\/span>/);
+  assert.doesNotMatch(titleMatch[0], /<span>N<\/span>/);
+  assert.match(styles, /\.sr-only\s*{/);
+  assert.match(styles, /#hero-title span\[aria-hidden="true"\]\s*{/);
+  assert.doesNotMatch(styles, /#hero-title\s+span\s*{/);
+  assert.match(styles, /#hero-title > span:nth-child\(15\)\s*{/);
+});
+
+test('hero background advertises optimized image-set sources', () => {
+  assert.match(styles, /image-set\(/);
+  assert.match(styles, /background-640\.avif/);
+  assert.match(styles, /background-640\.webp/);
+  assert.match(styles, /background-640\.jpg/);
+  assert.match(styles, /background-1024\.avif/);
+  assert.match(styles, /background-1024\.webp/);
+  assert.match(styles, /background-1024\.jpg/);
+  assert.match(styles, /background-1600\.avif/);
+  assert.match(styles, /background-1600\.webp/);
+});
+
+test('site copy prioritizes senior frontend platform work with consulting secondary', () => {
+  assert.match(index, /Senior Frontend Platform Engineer/);
+  assert.match(index, /I modernize complex product interfaces into accessible, reusable frontend platforms\./);
+  assert.match(index, /Frontend Platform Architecture/);
+  assert.match(index, /Selective Custom Software Consulting/);
+  assert.doesNotMatch(index, /Open to building custom websites, software, and applications for businesses and individuals\./);
+});
+
+test('resume source mirrors the hybrid positioning used on the site', () => {
+  assert.match(resumeSource, /Senior Frontend Platform Engineer/);
+  assert.match(resumeSource, /Enterprise UI modernization/);
+  assert.match(resumeSource, /Preact\/React, TypeScript, Web Components/);
+  assert.match(resumeSource, /Selective consulting/);
 });
 
 test('theme script defaults to dark mode and exposes state to assistive technology', () => {

@@ -81,6 +81,18 @@ a:focus-visible {
   outline-offset: 2px;
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 
 /* ===== Layout helpers ===== */
 .container {
@@ -267,8 +279,12 @@ a:focus-visible {
   padding-top: 4rem; /* space for fixed nav */
   position: relative;
   isolation: isolate;
-  /* Fallback background */
-  background-image: url("../images/background.jpg");
+  background-image: url("../images/optimized/background-1024.jpg");
+  background-image: image-set(
+    url("../images/optimized/background-1024.avif") type("image/avif"),
+    url("../images/optimized/background-1024.webp") type("image/webp"),
+    url("../images/optimized/background-1024.jpg") type("image/jpeg")
+  );
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -553,9 +569,12 @@ section {
 
 @media (max-width: 800px) {
   .hero {
-    /* Use smaller image and disable fixed attachment on mobile to avoid zoom/blank issues */
-    /* Mobile background: restore PNG asset */
-    background-image: url("../images/background_small.png");
+    background-image: url("../images/optimized/background-640.jpg");
+    background-image: image-set(
+      url("../images/optimized/background-640.avif") type("image/avif"),
+      url("../images/optimized/background-640.webp") type("image/webp"),
+      url("../images/optimized/background-640.jpg") type("image/jpeg")
+    );
     background-attachment: scroll;
     background-position: center;
     background-size: cover;
@@ -579,7 +598,7 @@ section {
 }
 
 /* Name animation (scoped to hero title) */
-#hero-title span {
+#hero-title span[aria-hidden="true"] {
   opacity: 0;
   transform: translate(0, -100px) rotate(360deg) scale(0);
   animation: revolveDrop 1s forwards;
@@ -602,22 +621,22 @@ section {
 }
 
 /* Staggered delays for Name: "Nicholas" (8 spans) + " Genco" (6 spans inside strong) */
-#hero-title > span:nth-of-type(1)  { animation-delay: 0s; }
-#hero-title > span:nth-of-type(2)  { animation-delay: 0.05s; }
-#hero-title > span:nth-of-type(3)  { animation-delay: 0.10s; }
-#hero-title > span:nth-of-type(4)  { animation-delay: 0.15s; }
-#hero-title > span:nth-of-type(5)  { animation-delay: 0.20s; }
-#hero-title > span:nth-of-type(6)  { animation-delay: 0.25s; }
-#hero-title > span:nth-of-type(7)  { animation-delay: 0.30s; }
-#hero-title > span:nth-of-type(8)  { animation-delay: 0.35s; }
+#hero-title > span:nth-child(2)  { animation-delay: 0s; }
+#hero-title > span:nth-child(3)  { animation-delay: 0.05s; }
+#hero-title > span:nth-child(4)  { animation-delay: 0.10s; }
+#hero-title > span:nth-child(5)  { animation-delay: 0.15s; }
+#hero-title > span:nth-child(6)  { animation-delay: 0.20s; }
+#hero-title > span:nth-child(7)  { animation-delay: 0.25s; }
+#hero-title > span:nth-child(8)  { animation-delay: 0.30s; }
+#hero-title > span:nth-child(9)  { animation-delay: 0.35s; }
 
 /* Continue delay sequence into the last name spans */
-#hero-title > span:nth-of-type(9)  { animation-delay: 0.40s; }
-#hero-title > span:nth-of-type(10) { animation-delay: 0.45s; }
-#hero-title > span:nth-of-type(11) { animation-delay: 0.50s; }
-#hero-title > span:nth-of-type(12) { animation-delay: 0.55s; }
-#hero-title > span:nth-of-type(13) { animation-delay: 0.60s; }
-#hero-title > span:nth-of-type(14) { animation-delay: 0.65s; }
+#hero-title > span:nth-child(10) { animation-delay: 0.40s; }
+#hero-title > span:nth-child(11) { animation-delay: 0.45s; }
+#hero-title > span:nth-child(12) { animation-delay: 0.50s; }
+#hero-title > span:nth-child(13) { animation-delay: 0.55s; }
+#hero-title > span:nth-child(14) { animation-delay: 0.60s; }
+#hero-title > span:nth-child(15) { animation-delay: 0.65s; }
 
 /* Subtitle animation */
 #hero-subtitle.animate span {
@@ -666,7 +685,11 @@ section {
 
 @media (min-width: 1200px) {
   .hero {
-    /* Fallback first */
     background-image: url("../images/optimized/background-1600.jpg");
+    background-image: image-set(
+      url("../images/optimized/background-1600.avif") type("image/avif"),
+      url("../images/optimized/background-1600.webp") type("image/webp"),
+      url("../images/optimized/background-1600.jpg") type("image/jpeg")
+    );
   }
 }

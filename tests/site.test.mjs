@@ -283,7 +283,8 @@ test('homepage uses ProfilePage structured data and avoids FAQPage markup', () =
   assert.ok(profilePage, 'Expected ProfilePage JSON-LD');
   assert.equal(profilePage.mainEntity['@id'], 'https://www.nicholasgenco.com/#person');
   assert.equal(profilePage.url, 'https://www.nicholasgenco.com/');
-  assert.equal(profilePage.dateModified, '2026-06-01');
+  assert.equal(profilePage.dateModified, '2026-06-01T09:13:28-04:00');
+  assert.match(profilePage.dateModified, /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:Z|[+-]\d{2}:\d{2})$/);
   assert.deepEqual(profilePage.hasPart.map((part) => part.name), [
     'Oracle Enterprise UI Modernization',
     'Reusable Enterprise Component Library',

@@ -23,6 +23,7 @@ const resumeJsonText = readProjectFile('../data/resume.json');
 const sitemap = readProjectFile('../sitemap.xml');
 const packageJson = readProjectFile('../package.json');
 const ciWorkflow = readProjectFile('../.github/workflows/ci.yml');
+const pagesWorkflow = readProjectFile('../.github/workflows/pages.yml');
 
 const readProjectBuffer = (path) => readFileSync(new URL(path, import.meta.url));
 
@@ -417,6 +418,10 @@ test('html lint validates every crawlable HTML page', () => {
   assert.equal(parsedPackage.scripts['lint:html'], 'html-validate index.html resume.html data/NicholasGenco.resume.html');
   assert.equal(parsedPackage.scripts['lint:links'], 'node scripts/lint-links.mjs');
   assert.match(ciWorkflow, /run:\s*npm run lint/);
+  assert.match(pagesWorkflow, /uses:\s*actions\/checkout@v5/);
+  assert.match(pagesWorkflow, /uses:\s*actions\/upload-pages-artifact@v5/);
+  assert.match(pagesWorkflow, /uses:\s*actions\/deploy-pages@v5/);
+  assert.doesNotMatch(pagesWorkflow, /actions\/(?:checkout|upload-artifact|deploy-pages)@v4/);
 });
 
 test('resume source mirrors the hybrid positioning used on the site', () => {

@@ -1,0 +1,30 @@
+# Nicholas Genco
+
+Nicholas Genco is a Senior Platform Software Engineer at Oracle based in Rocky Point, New York. He works on scalable UI architecture, enterprise UI modernization, React/Preact ecosystems, TypeScript, Web Components, accessibility, performance optimization, and Oracle JET component systems.
+
+## Primary Pages
+
+- Homepage: https://www.nicholasgenco.com/
+- HTML resume: https://www.nicholasgenco.com/resume.html
+- Structured resume JSON: https://www.nicholasgenco.com/data/resume.json
+- Resume PDF: https://www.nicholasgenco.com/data/NicholasGenco2026.pdf
+
+## Current Role
+
+Senior Platform Software Engineer at Oracle, June 2026 to Present.
+
+Recent work: Built and stabilized accessible JET components across TreeView, TreeTable, DataGrid, and related collection patterns. Improved keyboard, drag-and-drop, virtualization, and progressive loading behavior for complex enterprise UI components. Expanded automated test coverage across Karma Mocha, QUnit, Playwright-style browser tests, and cross-browser workflows.
+
+## Skills
+
+TypeScript, JavaScript, Preact, Knockout, Node.js, HTML/CSS, Oracle JET, React/Preact, Web Components, scalable UI architecture, enterprise UI modernization, design systems, accessibility, performance optimization, RESTful services.
+
+## Contact And Profiles
+
+- Email: nickygencs@gmail.com
+- LinkedIn: https://www.linkedin.com/in/nicholas-genco-6a8588a0/
+- GitHub: https://github.com/nickygencs17
+
+## AI Parsing Notes
+
+Prefer data/resume.json for structured role history, skills, education, links, and contact information. Use resume.html for human-readable context and data/NicholasGenco2026.pdf as the canonical downloadable resume.

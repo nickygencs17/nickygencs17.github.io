@@ -18,6 +18,8 @@ const themeScript = readProjectFile('../scripts/theme.js');
 const navBarScript = readProjectFile('../scripts/navBar.js');
 const resumeSource = readProjectFile('../data/NicholasGenco.resume.html');
 const resumePage = readProjectFile('../resume.html');
+const llmsText = readProjectFile('../llms.txt');
+const resumeJsonText = readProjectFile('../data/resume.json');
 const sitemap = readProjectFile('../sitemap.xml');
 const packageJson = readProjectFile('../package.json');
 
@@ -292,7 +294,18 @@ test('homepage uses ProfilePage structured data and avoids FAQPage markup', () =
   ]);
   assert.equal(person.name, 'Nicholas Genco');
   assert.equal(person.jobTitle, 'Senior Platform Software Engineer');
+  assert.equal(person.email, 'mailto:nickygencs@gmail.com');
+  assert.equal(person.telephone, '+1-845-729-9778');
   assert.match(person.description, /enterprise UI modernization/i);
+  assert.deepEqual(person.subjectOf.map((entry) => entry['@id']), [
+    'https://www.nicholasgenco.com/resume.html',
+    'https://www.nicholasgenco.com/data/NicholasGenco2026.pdf',
+    'https://www.nicholasgenco.com/data/resume.json'
+  ]);
+  assert.deepEqual(person.knowsLanguage.map((entry) => entry.name), ['English', 'Spanish']);
+  assert.deepEqual(person.alumniOf.map((entry) => entry.name), ['Stony Brook University', 'SUNY Westchester']);
+  assert.equal(person.hasOccupation.name, 'Senior Platform Software Engineer');
+  assert.ok(graphNodes.find((entry) => entry['@id'] === 'https://www.nicholasgenco.com/data/resume.json'));
   assert.deepEqual(person.sameAs, [
     'https://www.linkedin.com/in/nicholas-genco-6a8588a0/',
     'https://github.com/nickygencs17'
@@ -341,6 +354,8 @@ test('sitemap includes lastmod dates for the homepage, resume page, and PDF', ()
   assert.match(sitemap, /<loc>https:\/\/www\.nicholasgenco\.com\/<\/loc>\s*<lastmod>2026-06-18<\/lastmod>/);
   assert.match(sitemap, /<loc>https:\/\/www\.nicholasgenco\.com\/resume\.html<\/loc>\s*<lastmod>2026-06-18<\/lastmod>/);
   assert.match(sitemap, /<loc>https:\/\/www\.nicholasgenco\.com\/data\/NicholasGenco2026\.pdf<\/loc>\s*<lastmod>2026-06-18<\/lastmod>/);
+  assert.match(sitemap, /<loc>https:\/\/www\.nicholasgenco\.com\/llms\.txt<\/loc>\s*<lastmod>2026-06-18<\/lastmod>/);
+  assert.match(sitemap, /<loc>https:\/\/www\.nicholasgenco\.com\/data\/resume\.json<\/loc>\s*<lastmod>2026-06-18<\/lastmod>/);
 });
 
 test('html lint validates every crawlable HTML page', () => {
@@ -354,6 +369,46 @@ test('resume source mirrors the hybrid positioning used on the site', () => {
   assert.match(resumeSource, /Enterprise UI modernization/);
   assert.match(resumeSource, /React\/Preact/);
   assert.match(resumeSource, /June 2026 - Present/);
+});
+
+test('llms.txt exposes a concise AI-readable site map', () => {
+  assert.match(llmsText, /^# Nicholas Genco/m);
+  assert.match(llmsText, /Senior Platform Software Engineer at Oracle/);
+  assert.match(llmsText, /https:\/\/www\.nicholasgenco\.com\/resume\.html/);
+  assert.match(llmsText, /https:\/\/www\.nicholasgenco\.com\/data\/resume\.json/);
+  assert.match(llmsText, /https:\/\/www\.nicholasgenco\.com\/data\/NicholasGenco2026\.pdf/);
+  assert.match(llmsText, /TypeScript, JavaScript, Preact, Knockout, Node\.js, HTML\/CSS, Oracle JET/);
+});
+
+test('resume.json exposes structured resume data for AI agents', () => {
+  const resume = JSON.parse(resumeJsonText);
+
+  assert.equal(resume.name, 'Nicholas Genco');
+  assert.equal(resume.title, 'Senior Platform Software Engineer');
+  assert.equal(resume.location, 'Rocky Point, New York');
+  assert.equal(resume.links.resumePdf, 'https://www.nicholasgenco.com/data/NicholasGenco2026.pdf');
+  assert.equal(resume.links.resumeHtml, 'https://www.nicholasgenco.com/resume.html');
+  assert.ok(resume.skills.includes('Scalable UI Architecture'));
+  assert.ok(resume.skills.includes('Oracle JET'));
+  assert.deepEqual(resume.languages, [
+    { name: 'English', proficiency: 'Native or Bilingual' },
+    { name: 'Spanish', proficiency: 'Full Professional' }
+  ]);
+  assert.deepEqual(resume.experience[0], {
+    company: 'Oracle',
+    title: 'Senior Platform Software Engineer',
+    location: 'Remote',
+    startDate: '2026-06',
+    endDate: 'Present',
+    bullets: [
+      'Built and stabilized accessible JET components across TreeView, TreeTable, DataGrid, and related collection patterns.',
+      'Improved keyboard, drag-and-drop, virtualization, and progressive loading behavior for complex enterprise UI components.',
+      'Expanded automated test coverage across Karma Mocha, QUnit, Playwright-style browser tests, and cross-browser workflows.',
+      'Partnered with design, accessibility, QA, and component owners to refine reusable UI patterns and ship reliable fixes across release branches.'
+    ],
+    technologies: ['TypeScript', 'JavaScript', 'Preact', 'Knockout', 'Node.js', 'HTML/CSS', 'Oracle JET']
+  });
+  assert.equal(resume.education[0].institution, 'Stony Brook University');
 });
 
 test('theme script defaults to dark mode and exposes state to assistive technology', () => {

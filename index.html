@@ -101,21 +101,67 @@
         "@id": "https://www.nicholasgenco.com/#person",
         "name": "Nicholas Genco",
         "url": "https://www.nicholasgenco.com/",
+        "mainEntityOfPage": {
+          "@id": "https://www.nicholasgenco.com/#profile-page"
+        },
+        "email": "mailto:nickygencs@gmail.com",
+        "telephone": "+1-845-729-9778",
+        "image": "https://www.nicholasgenco.com/images/nicholas-genco-social-preview.png",
         "sameAs": [
           "https://www.linkedin.com/in/nicholas-genco-6a8588a0/",
           "https://github.com/nickygencs17"
         ],
+        "subjectOf": [
+          {
+            "@id": "https://www.nicholasgenco.com/resume.html"
+          },
+          {
+            "@id": "https://www.nicholasgenco.com/data/NicholasGenco2026.pdf"
+          },
+          {
+            "@id": "https://www.nicholasgenco.com/data/resume.json"
+          }
+        ],
         "jobTitle": "Senior Platform Software Engineer",
         "description": "Senior platform software engineer at Oracle specializing in scalable UI architecture, enterprise UI modernization, reusable component libraries, accessibility, performance, TypeScript, Preact/React, and Web Components.",
+        "hasOccupation": {
+          "@type": "Occupation",
+          "name": "Senior Platform Software Engineer",
+          "occupationalCategory": "Software Engineering",
+          "skills": "Scalable UI Architecture, Enterprise UI Modernization, React, Preact, TypeScript, Web Components, Accessibility, Performance Optimization, Oracle JET"
+        },
         "worksFor": {
           "@type": "Organization",
           "name": "Oracle"
         },
+        "alumniOf": [
+          {
+            "@type": "CollegeOrUniversity",
+            "name": "Stony Brook University",
+            "sameAs": "https://www.stonybrook.edu/"
+          },
+          {
+            "@type": "CollegeOrUniversity",
+            "name": "SUNY Westchester",
+            "sameAs": "https://www.sunywcc.edu/"
+          }
+        ],
         "address": {
           "@type": "PostalAddress",
-          "addressLocality": "New York City Metropolitan Area",
+          "addressLocality": "Rocky Point",
+          "addressRegion": "NY",
           "addressCountry": "US"
         },
+        "knowsLanguage": [
+          {
+            "@type": "Language",
+            "name": "English"
+          },
+          {
+            "@type": "Language",
+            "name": "Spanish"
+          }
+        ],
         "knowsAbout": [
           "React",
           "Preact",
@@ -128,6 +174,35 @@
           "Performance Optimization",
           "Enterprise UI Modernization"
         ]
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://www.nicholasgenco.com/resume.html",
+        "url": "https://www.nicholasgenco.com/resume.html",
+        "name": "Nicholas Genco Resume",
+        "about": {
+          "@id": "https://www.nicholasgenco.com/#person"
+        }
+      },
+      {
+        "@type": "DigitalDocument",
+        "@id": "https://www.nicholasgenco.com/data/NicholasGenco2026.pdf",
+        "url": "https://www.nicholasgenco.com/data/NicholasGenco2026.pdf",
+        "name": "Nicholas Genco Resume PDF",
+        "encodingFormat": "application/pdf",
+        "about": {
+          "@id": "https://www.nicholasgenco.com/#person"
+        }
+      },
+      {
+        "@type": "Dataset",
+        "@id": "https://www.nicholasgenco.com/data/resume.json",
+        "url": "https://www.nicholasgenco.com/data/resume.json",
+        "name": "Nicholas Genco Resume JSON",
+        "encodingFormat": "application/json",
+        "about": {
+          "@id": "https://www.nicholasgenco.com/#person"
+        }
       },
       {
         "@type": "Service",

@@ -1,0 +1,191 @@
+{
+  "name": "Nicholas Genco",
+  "title": "Senior Platform Software Engineer",
+  "headline": "Senior Platform Software Engineer at Oracle focused on scalable UI architecture, React/Preact ecosystems, TypeScript, Web Components, accessibility, performance, and enterprise UI modernization.",
+  "location": "Rocky Point, New York",
+  "email": "nickygencs@gmail.com",
+  "phone": "845-729-9778",
+  "links": {
+    "website": "https://www.nicholasgenco.com/",
+    "resumeHtml": "https://www.nicholasgenco.com/resume.html",
+    "resumePdf": "https://www.nicholasgenco.com/data/NicholasGenco2026.pdf",
+    "linkedin": "https://www.linkedin.com/in/nicholas-genco-6a8588a0/",
+    "github": "https://github.com/nickygencs17"
+  },
+  "summary": [
+    "I build scalable, high-performance applications.",
+    "My focus is modernizing legacy systems into maintainable, reusable ecosystems using the React/Preact stack, TypeScript, and RESTful services.",
+    "I specialize in design system engineering, performance optimization, and component libraries that accelerate development at scale."
+  ],
+  "skills": [
+    "Scalable UI Architecture",
+    "Enterprise UI Modernization",
+    "React/Preact",
+    "Preact",
+    "React",
+    "TypeScript",
+    "JavaScript",
+    "Web Components",
+    "Oracle JET",
+    "Knockout",
+    "Node.js",
+    "HTML/CSS",
+    "Design Systems",
+    "Accessibility",
+    "Performance Optimization",
+    "RESTful Services",
+    "Karma Mocha",
+    "QUnit",
+    "Playwright"
+  ],
+  "languages": [
+    {
+      "name": "English",
+      "proficiency": "Native or Bilingual"
+    },
+    {
+      "name": "Spanish",
+      "proficiency": "Full Professional"
+    }
+  ],
+  "experience": [
+    {
+      "company": "Oracle",
+      "title": "Senior Platform Software Engineer",
+      "location": "Remote",
+      "startDate": "2026-06",
+      "endDate": "Present",
+      "bullets": [
+        "Built and stabilized accessible JET components across TreeView, TreeTable, DataGrid, and related collection patterns.",
+        "Improved keyboard, drag-and-drop, virtualization, and progressive loading behavior for complex enterprise UI components.",
+        "Expanded automated test coverage across Karma Mocha, QUnit, Playwright-style browser tests, and cross-browser workflows.",
+        "Partnered with design, accessibility, QA, and component owners to refine reusable UI patterns and ship reliable fixes across release branches."
+      ],
+      "technologies": [
+        "TypeScript",
+        "JavaScript",
+        "Preact",
+        "Knockout",
+        "Node.js",
+        "HTML/CSS",
+        "Oracle JET"
+      ]
+    },
+    {
+      "company": "Oracle",
+      "title": "Senior Member of Technical Staff",
+      "location": "Remote",
+      "startDate": "2022-08",
+      "endDate": "2026-06",
+      "bullets": [
+        "Modernized Oracle's enterprise UI ecosystem by converting legacy Knockout/JET modules into scalable ES6/TypeScript and Preact Web Components.",
+        "Delivered a reusable component library used across 20+ internal enterprise teams, reducing duplicated logic and increasing developer velocity.",
+        "Engineered high-performance client-side components for real-time data rendering, responsive interaction, and strict enterprise accessibility requirements."
+      ],
+      "technologies": [
+        "Preact",
+        "TypeScript/ES6+",
+        "Web Components",
+        "Node.js",
+        "HTML5",
+        "CSS3",
+        "Knockout"
+      ]
+    },
+    {
+      "company": "Oracle",
+      "title": "Member of Technical Staff",
+      "location": "Boston, MA / Remote",
+      "startDate": "2020-06",
+      "endDate": "2022-08",
+      "bullets": [
+        "Refactored legacy UI systems into flexible shared components aligned with scalable frontend architecture standards.",
+        "Led interns converting large JET/JavaScript modules to TypeScript, improving type safety and toolchain consistency across multiple teams.",
+        "Partnered with UI architects to streamline patterns for reusable components and internal design standards."
+      ],
+      "technologies": [
+        "TypeScript",
+        "ES6",
+        "Knockout",
+        "Node.js",
+        "HTML/CSS"
+      ]
+    },
+    {
+      "company": "Oracle",
+      "title": "Software Engineer",
+      "location": "Boston, MA",
+      "startDate": "2019-03",
+      "endDate": "2020-06",
+      "bullets": [
+        "Built accessible enterprise UI components with end-to-end design participation.",
+        "Implemented scalable UI enhancements and resolved production defects across customer-facing modules.",
+        "Prototyped lazy-loading data providers that were leveraged in high-scale environments."
+      ],
+      "technologies": [
+        "TypeScript",
+        "jQuery",
+        "Knockout",
+        "Node.js",
+        "HTML/CSS"
+      ]
+    },
+    {
+      "company": "CAMP Systems International, Inc.",
+      "title": "Software Engineer",
+      "location": "Ronkonkoma, NY",
+      "startDate": "2018-03",
+      "endDate": "2019-02",
+      "bullets": [
+        "Developed front-end modules for aviation asset management platforms used by enterprise clients.",
+        "Ensured compatibility across multiple hardware and third-party integrations."
+      ],
+      "technologies": [
+        "C#",
+        "Ext JS",
+        "ASP.NET",
+        "Oracle SQL"
+      ]
+    },
+    {
+      "company": "Garment Printer Ink",
+      "title": "Web Developer",
+      "location": "North Port, NY",
+      "startDate": "2018-01",
+      "endDate": "2018-03",
+      "bullets": [
+        "Built web modules for the Magento and Joomla platforms.",
+        "Created relational databases used for shipping, inventory, and e-commerce.",
+        "Served as a system administrator for a large e-commerce business."
+      ],
+      "technologies": [
+        "Magento",
+        "Joomla",
+        "JavaScript",
+        "CSS",
+        "AWS"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "Stony Brook University",
+      "degree": "Bachelors of Science (BS)",
+      "field": "Computer Science",
+      "location": "Stony Brook, NY",
+      "graduationDate": "2018-01"
+    },
+    {
+      "institution": "SUNY Westchester",
+      "degree": "Associates of Science (AS)",
+      "field": "Computer Science",
+      "location": "Valhalla, NY",
+      "graduationDate": "2015-01"
+    }
+  ],
+  "certifications": [
+    "New York State Medication Certification (AMAP)",
+    "Security Guard License"
+  ],
+  "lastUpdated": "2026-06-18"
+}

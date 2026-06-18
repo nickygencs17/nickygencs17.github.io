@@ -24,6 +24,8 @@ const sitemap = readProjectFile('../sitemap.xml');
 const packageJson = readProjectFile('../package.json');
 const ciWorkflow = readProjectFile('../.github/workflows/ci.yml');
 const pagesWorkflow = readProjectFile('../.github/workflows/pages.yml');
+const optimizeImagesScript = readProjectFile('../scripts/optimize-images.mjs');
+const socialPreviewScript = readProjectFile('../scripts/create-social-preview.mjs');
 
 const readProjectBuffer = (path) => readFileSync(new URL(path, import.meta.url));
 
@@ -418,7 +420,11 @@ test('html lint validates every crawlable HTML page', () => {
   assert.equal(parsedPackage.scripts['lint:html'], 'html-validate index.html resume.html data/NicholasGenco.resume.html');
   assert.equal(parsedPackage.scripts['lint:links'], 'node scripts/lint-links.mjs');
   assert.equal(parsedPackage.devDependencies.sharp, undefined);
-  assert.equal(parsedPackage.optionalDependencies.sharp, '^0.33.0');
+  assert.equal(parsedPackage.optionalDependencies?.sharp, undefined);
+  assert.match(optimizeImagesScript, /await import\('sharp'\)/);
+  assert.match(socialPreviewScript, /await import\('sharp'\)/);
+  assert.match(optimizeImagesScript, /npm install --no-save sharp/);
+  assert.match(socialPreviewScript, /npm install --no-save sharp/);
   assert.match(ciWorkflow, /run:\s*npm ci --omit=optional --ignore-scripts/);
   assert.match(ciWorkflow, /run:\s*npm run lint/);
   assert.match(pagesWorkflow, /run:\s*npm ci --omit=optional --ignore-scripts/);

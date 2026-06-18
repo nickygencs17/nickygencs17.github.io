@@ -1,7 +1,18 @@
 import { mkdir, access } from 'node:fs/promises';
 import { constants as fsConstants } from 'node:fs';
 import path from 'node:path';
-import sharp from 'sharp';
+
+async function loadSharp() {
+  try {
+    return (await import('sharp')).default;
+  } catch (error) {
+    if (error?.code === 'ERR_MODULE_NOT_FOUND' || /Cannot find package 'sharp'/.test(error?.message ?? '')) {
+      console.error('This script requires sharp. Run `npm install --no-save sharp` and try again.');
+      process.exit(1);
+    }
+    throw error;
+  }
+}
 
 async function fileExists(p) {
   try {
@@ -13,6 +24,7 @@ async function fileExists(p) {
 }
 
 async function main() {
+  const sharp = await loadSharp();
   const projectRoot = process.cwd();
   const outDir = path.join(projectRoot, 'images', 'optimized');
   const sources = [

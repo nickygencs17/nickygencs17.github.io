@@ -1,10 +1,23 @@
-import sharp from 'sharp';
 import { fileURLToPath } from 'node:url';
 
 const width = 1200;
 const height = 630;
 
 const fromRoot = (path) => fileURLToPath(new URL(`../${path}`, import.meta.url));
+
+async function loadSharp() {
+  try {
+    return (await import('sharp')).default;
+  } catch (error) {
+    if (error?.code === 'ERR_MODULE_NOT_FOUND' || /Cannot find package 'sharp'/.test(error?.message ?? '')) {
+      console.error('This script requires sharp. Run `npm install --no-save sharp` and try again.');
+      process.exit(1);
+    }
+    throw error;
+  }
+}
+
+const sharp = await loadSharp();
 
 const overlay = Buffer.from(`
 <svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg">

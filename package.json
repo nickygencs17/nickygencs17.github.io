@@ -15,8 +15,5 @@
   "devDependencies": {
     "html-validate": "^8.0.0",
     "linkinator": "^4.0.0"
-  },
-  "optionalDependencies": {
-    "sharp": "^0.33.0"
   }
 }

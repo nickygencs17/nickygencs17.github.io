@@ -22,6 +22,7 @@ const llmsText = readProjectFile('../llms.txt');
 const resumeJsonText = readProjectFile('../data/resume.json');
 const sitemap = readProjectFile('../sitemap.xml');
 const packageJson = readProjectFile('../package.json');
+const ciWorkflow = readProjectFile('../.github/workflows/ci.yml');
 
 const readProjectBuffer = (path) => readFileSync(new URL(path, import.meta.url));
 
@@ -41,9 +42,33 @@ const extractJsonLd = (html) => {
 const createElement = () => {
   const listeners = new Map();
   const attributes = new Map();
+  const styles = new Map();
+  const classes = new Set();
 
   return {
     textContent: '',
+    style: {
+      setProperty(name, value) {
+        styles.set(name, value);
+      },
+      removeProperty(name) {
+        styles.delete(name);
+      }
+    },
+    classList: {
+      add(name) {
+        classes.add(name);
+      },
+      remove(...names) {
+        names.forEach((name) => classes.delete(name));
+      },
+      contains(name) {
+        return classes.has(name);
+      }
+    },
+    get offsetWidth() {
+      return 1;
+    },
     addEventListener(type, handler) {
       listeners.set(type, handler);
     },
@@ -62,6 +87,7 @@ const createElement = () => {
 const runThemeScript = (storedTheme) => {
   const label = createElement();
   const icon = createElement();
+  const hero = createElement();
   const toggle = {
     ...createElement(),
     querySelector(selector) {
@@ -81,7 +107,28 @@ const runThemeScript = (storedTheme) => {
         return id === 'themeToggle' ? toggle : null;
       },
       querySelector(selector) {
+        if (selector === '.hero') return hero;
         return selector === 'meta[name="theme-color"]' ? meta : null;
+      }
+    },
+    window: {
+      clearTimeout() {},
+      getComputedStyle() {
+        return {
+          backgroundImage: 'url("images/background.jpg")',
+          backgroundPosition: 'center',
+          backgroundSize: 'cover'
+        };
+      },
+      matchMedia() {
+        return { matches: false };
+      },
+      requestAnimationFrame(callback) {
+        callback();
+      },
+      setTimeout(callback) {
+        callback();
+        return 1;
       }
     },
     localStorage: {
@@ -93,6 +140,7 @@ const runThemeScript = (storedTheme) => {
       }
     }
   };
+  context.getComputedStyle = context.window.getComputedStyle;
 
   vm.runInNewContext(themeScript, context);
   return { root, toggle, label, icon, meta, storage };
@@ -246,7 +294,7 @@ test('hero title exposes one readable name without duplicate text nodes', () => 
   assert.doesNotMatch(styles, /#hero-title > span:nth-child\(15\)\s*{/);
 });
 
-test('hero background advertises optimized image-set sources', () => {
+test('hero background advertises optimized dark and light image-set sources', () => {
   assert.match(styles, /image-set\(/);
   assert.match(styles, /background-640\.avif/);
   assert.match(styles, /background-640\.webp/);
@@ -256,14 +304,19 @@ test('hero background advertises optimized image-set sources', () => {
   assert.match(styles, /background-1024\.jpg/);
   assert.match(styles, /background-1600\.avif/);
   assert.match(styles, /background-1600\.webp/);
+  assert.match(styles, /nyc-day-640\.avif/);
+  assert.match(styles, /nyc-day-640\.webp/);
+  assert.match(styles, /nyc-day-1024\.jpg/);
+  assert.match(styles, /nyc-day-1600\.avif/);
+  assert.match(styles, /nyc-day-1600\.webp/);
 });
 
 test('small mobile hero keeps the background image covering the viewport', () => {
   const smallMobileHeroMatch = styles.match(/@media \(max-width: 480px\) \{[\s\S]*?\.hero \{([\s\S]*?)\n  \}/);
 
   assert.ok(smallMobileHeroMatch, 'Expected small mobile hero styles');
-  assert.match(smallMobileHeroMatch[1], /background-size:\s*cover;/);
-  assert.match(smallMobileHeroMatch[1], /background-position:\s*center;/);
+  assert.match(smallMobileHeroMatch[1], /background-size:\s*var\(--hero-bg-size\);/);
+  assert.match(smallMobileHeroMatch[1], /background-position:\s*var\(--hero-bg-position\);/);
   assert.doesNotMatch(smallMobileHeroMatch[1], /background-size:\s*contain;/);
 });
 
@@ -362,6 +415,8 @@ test('html lint validates every crawlable HTML page', () => {
   const parsedPackage = JSON.parse(packageJson);
 
   assert.equal(parsedPackage.scripts['lint:html'], 'html-validate index.html resume.html data/NicholasGenco.resume.html');
+  assert.equal(parsedPackage.scripts['lint:links'], 'node scripts/lint-links.mjs');
+  assert.match(ciWorkflow, /run:\s*npm run lint/);
 });
 
 test('resume source mirrors the hybrid positioning used on the site', () => {

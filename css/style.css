@@ -20,7 +20,12 @@
   --hero-border: rgba(255, 255, 255, 0.16);
   --hero-text: #ffffff;
   --hero-muted: #dbe4ef;
-  --hero-bg: url("../images/background.jpg");
+  --hero-bg-fallback: url("../images/optimized/background-1024.jpg");
+  --hero-bg: image-set(
+    url("../images/optimized/background-1024.avif") type("image/avif"),
+    url("../images/optimized/background-1024.webp") type("image/webp"),
+    url("../images/optimized/background-1024.jpg") type("image/jpeg")
+  );
   --hero-bg-position: center;
   --hero-bg-size: cover;
 }
@@ -46,7 +51,12 @@
   --hero-border: rgba(255, 255, 255, 0.18);
   --hero-text: #ffffff;
   --hero-muted: #e2e8f0;
-  --hero-bg: url("../images/nyc_day.jpg");
+  --hero-bg-fallback: url("../images/optimized/nyc-day-1024.jpg");
+  --hero-bg: image-set(
+    url("../images/optimized/nyc-day-1024.avif") type("image/avif"),
+    url("../images/optimized/nyc-day-1024.webp") type("image/webp"),
+    url("../images/optimized/nyc-day-1024.jpg") type("image/jpeg")
+  );
   --hero-bg-position: center 35%;
   --hero-bg-size: cover;
 }
@@ -285,6 +295,7 @@ a:focus-visible {
   padding-top: 4rem; /* space for fixed nav */
   position: relative;
   isolation: isolate;
+  background-image: var(--hero-bg-fallback);
   background-image: var(--hero-bg);
   background-position: var(--hero-bg-position);
   background-repeat: no-repeat;
@@ -734,6 +745,24 @@ section {
 }
 
 @media (max-width: 800px) {
+  :root {
+    --hero-bg-fallback: url("../images/optimized/background-640.jpg");
+    --hero-bg: image-set(
+      url("../images/optimized/background-640.avif") type("image/avif"),
+      url("../images/optimized/background-640.webp") type("image/webp"),
+      url("../images/optimized/background-640.jpg") type("image/jpeg")
+    );
+  }
+
+  [data-theme="light"] {
+    --hero-bg-fallback: url("../images/optimized/nyc-day-640.jpg");
+    --hero-bg: image-set(
+      url("../images/optimized/nyc-day-640.avif") type("image/avif"),
+      url("../images/optimized/nyc-day-640.webp") type("image/webp"),
+      url("../images/optimized/nyc-day-640.jpg") type("image/jpeg")
+    );
+  }
+
   html:not([data-theme="light"]) .hero {
     background-image: url("../images/background_small.png");
     background-attachment: scroll;
@@ -841,5 +870,25 @@ section {
     animation: none !important;
     opacity: 1 !important;
     transform: none !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  :root {
+    --hero-bg-fallback: url("../images/optimized/background-1600.jpg");
+    --hero-bg: image-set(
+      url("../images/optimized/background-1600.avif") type("image/avif"),
+      url("../images/optimized/background-1600.webp") type("image/webp"),
+      url("../images/optimized/background-1600.jpg") type("image/jpeg")
+    );
+  }
+
+  [data-theme="light"] {
+    --hero-bg-fallback: url("../images/optimized/nyc-day-1600.jpg");
+    --hero-bg: image-set(
+      url("../images/optimized/nyc-day-1600.avif") type("image/avif"),
+      url("../images/optimized/nyc-day-1600.webp") type("image/webp"),
+      url("../images/optimized/nyc-day-1600.jpg") type("image/jpeg")
+    );
   }
 }

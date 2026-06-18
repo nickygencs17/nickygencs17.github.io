@@ -265,10 +265,10 @@ test('small mobile hero keeps the background image covering the viewport', () =>
   assert.doesNotMatch(smallMobileHeroMatch[1], /background-size:\s*contain;/);
 });
 
-test('site copy prioritizes senior frontend platform work with consulting secondary', () => {
-  assert.match(index, /Senior Frontend Platform Engineer/);
-  assert.match(index, /I modernize complex product interfaces into accessible, reusable frontend platforms\./);
-  assert.match(index, /Frontend Platform Architecture/);
+test('site copy prioritizes senior platform software work with consulting secondary', () => {
+  assert.match(index, /Senior Platform Software Engineer/);
+  assert.match(index, /I build scalable, high-performance applications\./);
+  assert.match(index, /Scalable UI Architecture/);
   assert.match(index, /Selective Custom Software Consulting/);
   assert.doesNotMatch(index, /Open to building custom websites, software, and applications for businesses and individuals\./);
 });
@@ -283,7 +283,7 @@ test('homepage uses ProfilePage structured data and avoids FAQPage markup', () =
   assert.ok(profilePage, 'Expected ProfilePage JSON-LD');
   assert.equal(profilePage.mainEntity['@id'], 'https://www.nicholasgenco.com/#person');
   assert.equal(profilePage.url, 'https://www.nicholasgenco.com/');
-  assert.equal(profilePage.dateModified, '2026-06-01T09:13:28-04:00');
+  assert.equal(profilePage.dateModified, '2026-06-18T11:30:00-04:00');
   assert.match(profilePage.dateModified, /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:Z|[+-]\d{2}:\d{2})$/);
   assert.deepEqual(profilePage.hasPart.map((part) => part.name), [
     'Oracle Enterprise UI Modernization',
@@ -291,7 +291,7 @@ test('homepage uses ProfilePage structured data and avoids FAQPage markup', () =
     'Accessible High-Performance Data Interfaces'
   ]);
   assert.equal(person.name, 'Nicholas Genco');
-  assert.equal(person.jobTitle, 'Senior Frontend Platform Engineer');
+  assert.equal(person.jobTitle, 'Senior Platform Software Engineer');
   assert.match(person.description, /enterprise UI modernization/i);
   assert.deepEqual(person.sameAs, [
     'https://www.linkedin.com/in/nicholas-genco-6a8588a0/',
@@ -326,20 +326,21 @@ test('homepage advertises an indexable resume page and large social preview imag
 
 test('resume html page is crawlable and links to the PDF resume', () => {
   assert.match(resumePage, /<!DOCTYPE html>/);
-  assert.match(resumePage, /<title>Nicholas Genco Resume — Senior Frontend Platform Engineer<\/title>/);
+  assert.match(resumePage, /<title>Nicholas Genco Resume — Senior Platform Software Engineer<\/title>/);
   assert.match(resumePage, /<meta name="description" content="HTML resume for Nicholas Genco/);
   assert.match(resumePage, /<link rel="canonical" href="https:\/\/www\.nicholasgenco\.com\/resume\.html">/);
   assert.match(resumePage, /<main id="main">/);
-  assert.match(resumePage, /Senior Frontend Platform Engineer/);
+  assert.match(resumePage, /Senior Platform Software Engineer/);
   assert.match(resumePage, /Enterprise UI modernization/);
-  assert.match(resumePage, /<a href="data\/NicholasGenco\.pdf"[^>]*>Download PDF<\/a>/);
+  assert.match(resumePage, /Senior Platform Software Engineer \| Oracle/);
+  assert.match(resumePage, /<a href="data\/NicholasGenco2026\.pdf"[^>]*download[^>]*>Download PDF<\/a>/);
   assert.match(resumePage, /<a href="index\.html#summary">Portfolio<\/a>/);
 });
 
 test('sitemap includes lastmod dates for the homepage, resume page, and PDF', () => {
-  assert.match(sitemap, /<loc>https:\/\/www\.nicholasgenco\.com\/<\/loc>\s*<lastmod>2026-06-01<\/lastmod>/);
-  assert.match(sitemap, /<loc>https:\/\/www\.nicholasgenco\.com\/resume\.html<\/loc>\s*<lastmod>2026-06-01<\/lastmod>/);
-  assert.match(sitemap, /<loc>https:\/\/www\.nicholasgenco\.com\/data\/NicholasGenco\.pdf<\/loc>\s*<lastmod>2026-06-01<\/lastmod>/);
+  assert.match(sitemap, /<loc>https:\/\/www\.nicholasgenco\.com\/<\/loc>\s*<lastmod>2026-06-18<\/lastmod>/);
+  assert.match(sitemap, /<loc>https:\/\/www\.nicholasgenco\.com\/resume\.html<\/loc>\s*<lastmod>2026-06-18<\/lastmod>/);
+  assert.match(sitemap, /<loc>https:\/\/www\.nicholasgenco\.com\/data\/NicholasGenco2026\.pdf<\/loc>\s*<lastmod>2026-06-18<\/lastmod>/);
 });
 
 test('html lint validates every crawlable HTML page', () => {
@@ -349,10 +350,10 @@ test('html lint validates every crawlable HTML page', () => {
 });
 
 test('resume source mirrors the hybrid positioning used on the site', () => {
-  assert.match(resumeSource, /Senior Frontend Platform Engineer/);
+  assert.match(resumeSource, /Senior Platform Software Engineer/);
   assert.match(resumeSource, /Enterprise UI modernization/);
-  assert.match(resumeSource, /Preact\/React, TypeScript, Web Components/);
-  assert.match(resumeSource, /Selective consulting/);
+  assert.match(resumeSource, /React\/Preact/);
+  assert.match(resumeSource, /June 2026 - Present/);
 });
 
 test('theme script defaults to dark mode and exposes state to assistive technology', () => {

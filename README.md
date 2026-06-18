@@ -1,6 +1,6 @@
 # nickygencs17.github.io
 
-Personal website for Nicholas Genco — Software Engineer III @ Oracle, Senior Frontend Engineer.
+Personal website for Nicholas Genco — Senior Platform Software Engineer @ Oracle, Senior Frontend Engineer.
 
 Live site: GitHub Pages (user site). This repository contains a static site: `index.html`, `css/style.css`, and `scripts/navBar.js` with supporting assets in `images/` and `favicons/`.
 

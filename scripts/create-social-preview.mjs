@@ -18,8 +18,8 @@ const overlay = Buffer.from(`
   <rect width="1200" height="630" fill="url(#shade)"/>
   <rect x="64" y="64" width="1072" height="502" rx="18" fill="#05070a" fill-opacity="0.72" stroke="#ffffff" stroke-opacity="0.18" stroke-width="2"/>
   <text x="252" y="178" fill="#f8fafc" font-family="Merriweather, Georgia, serif" font-size="72" font-weight="700">Nicholas Genco</text>
-  <text x="252" y="246" fill="#e5edf7" font-family="Roboto, Arial, sans-serif" font-size="38" font-weight="600">Senior Frontend Platform Engineer</text>
-  <text x="252" y="316" fill="#f59e0b" font-family="Roboto, Arial, sans-serif" font-size="28" font-weight="700">Enterprise UI modernization</text>
+  <text x="252" y="246" fill="#e5edf7" font-family="Roboto, Arial, sans-serif" font-size="38" font-weight="600">Senior Platform Software Engineer</text>
+  <text x="252" y="316" fill="#f59e0b" font-family="Roboto, Arial, sans-serif" font-size="28" font-weight="700">Scalable UI architecture</text>
   <text x="252" y="362" fill="#dbe4ef" font-family="Roboto, Arial, sans-serif" font-size="28">TypeScript • Preact/React • Web Components</text>
   <text x="252" y="408" fill="#dbe4ef" font-family="Roboto, Arial, sans-serif" font-size="28">Accessibility • Design Systems • Performance</text>
   <text x="252" y="488" fill="#cbd5e1" font-family="Roboto, Arial, sans-serif" font-size="26">New York City &amp; Long Island, NY</text>

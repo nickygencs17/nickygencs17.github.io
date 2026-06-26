@@ -186,9 +186,6 @@ a:focus-visible {
 .theme-toggle {
   display: inline-flex;
   min-width: 5.8rem;
-}
-
-.theme-toggle[aria-checked="true"] {
   box-shadow: inset 0 -2px 0 var(--accent);
 }
 

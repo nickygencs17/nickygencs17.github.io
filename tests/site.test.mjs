@@ -270,8 +270,11 @@ test('navigation controls use accessible buttons and default to dark theme', () 
   assert.match(index, /<html lang="en" data-theme="dark">/);
   assert.match(index, /<button\s+type="button"\s+class="menu-toggle icon"\s+id="menuToggle"[\s\S]*aria-expanded="false"[\s\S]*aria-controls="primaryNav"/);
   assert.doesNotMatch(index, /<a\b[^>]*\bid="menuToggle"/);
-  assert.match(index, /<button\s+type="button"\s+class="theme-toggle"\s+id="themeToggle"[\s\S]*role="switch"[\s\S]*aria-checked="false"/);
-  assert.match(index, /<script src="scripts\/theme\.js" defer><\/script>/);
+  const themeToggleMarkup = index.match(/<button\s+type="button"\s+class="theme-toggle"\s+id="themeToggle"[\s\S]*?<\/button>/)?.[0] || "";
+  assert.match(themeToggleMarkup, /aria-label="Switch to light mode"/);
+  assert.doesNotMatch(themeToggleMarkup, /\srole="switch"/);
+  assert.doesNotMatch(themeToggleMarkup, /\saria-checked=/);
+  assert.match(index, /<script src="scripts\/theme\.js\?v=a11y-20260626" defer><\/script>/);
 });
 
 test('styles define both dark and light theme tokens', () => {
@@ -279,6 +282,11 @@ test('styles define both dark and light theme tokens', () => {
   assert.match(styles, /\[data-theme="light"\]\s*{[\s\S]*--bg:/);
   assert.match(styles, /color-scheme:\s*dark/);
   assert.match(styles, /color-scheme:\s*light/);
+});
+
+test('theme toggle highlight is independent of switch checked state', () => {
+  assert.match(styles, /\.theme-toggle\s*{[\s\S]*box-shadow:\s*inset 0 -2px 0 var\(--accent\)/);
+  assert.doesNotMatch(styles, /\.theme-toggle\[aria-checked="true"\]\s*{[\s\S]*box-shadow:\s*inset 0 -2px 0 var\(--accent\)/);
 });
 
 test('hero title exposes one readable name without duplicate text nodes', () => {
@@ -486,7 +494,9 @@ test('theme script defaults to dark mode and exposes state to assistive technolo
 
   assert.equal(root.dataset.theme, 'dark');
   assert.equal(root.style.colorScheme, 'dark');
-  assert.equal(toggle.getAttribute('aria-checked'), 'false');
+  assert.equal(toggle.getAttribute('role'), null);
+  assert.equal(toggle.getAttribute('aria-checked'), null);
+  assert.equal(toggle.getAttribute('aria-label'), 'Switch to light mode');
   assert.equal(label.textContent, 'Dark');
   assert.equal(icon.textContent, '☾');
   assert.equal(meta.getAttribute('content'), '#05070a');
@@ -500,7 +510,9 @@ test('theme script toggles to light mode and persists the preference', () => {
 
   assert.equal(root.dataset.theme, 'light');
   assert.equal(root.style.colorScheme, 'light');
-  assert.equal(toggle.getAttribute('aria-checked'), 'true');
+  assert.equal(toggle.getAttribute('role'), null);
+  assert.equal(toggle.getAttribute('aria-checked'), null);
+  assert.equal(toggle.getAttribute('aria-label'), 'Switch to dark mode');
   assert.equal(label.textContent, 'Light');
   assert.equal(icon.textContent, '☀');
   assert.equal(meta.getAttribute('content'), '#f8fafc');
@@ -511,12 +523,12 @@ test('theme script ignores invalid stored themes', () => {
   const { root, toggle } = runThemeScript('blue');
 
   assert.equal(root.dataset.theme, 'dark');
-  assert.equal(toggle.getAttribute('aria-checked'), 'false');
+  assert.equal(toggle.getAttribute('aria-checked'), null);
 });
 
 test('scroll spy keeps summary active after anchor jump with scroll margin', () => {
   const { homeLink, summaryLink } = runNavBarAtSummaryAnchor();
 
-  assert.equal(summaryLink.getAttribute('aria-current'), 'true');
+  assert.equal(summaryLink.getAttribute('aria-current'), 'location');
   assert.equal(homeLink.getAttribute('aria-current'), null);
 });

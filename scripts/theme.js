@@ -49,7 +49,7 @@
     }
 
     if (toggle) {
-      toggle.setAttribute('aria-checked', String(nextTheme === 'light'));
+      toggle.setAttribute('aria-label', nextTheme === 'light' ? 'Switch to dark mode' : 'Switch to light mode');
     }
 
     if (label) {

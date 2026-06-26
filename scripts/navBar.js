@@ -60,7 +60,7 @@
     const link = linkById.get(id);
     if (link) {
       link.classList.add('active');
-      link.setAttribute('aria-current', 'true');
+      link.setAttribute('aria-current', 'location');
     }
   };
 

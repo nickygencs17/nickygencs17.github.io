@@ -378,6 +378,25 @@ test('homepage uses ProfilePage structured data and avoids FAQPage markup', () =
   assert.equal(graphNodes.some((entry) => entry['@type'] === 'FAQPage'), false);
 });
 
+test('FAQ disclosures use one accessible summary tab stop with a hidden icon', () => {
+  const faqMatch = index.match(/<section id="faq"[\s\S]*?<\/section>/);
+  assert.ok(faqMatch);
+
+  const summaries = faqMatch[0].match(/<summary>[\s\S]*?<\/summary>/g) || [];
+  assert.equal(summaries.length, 4);
+
+  summaries.forEach((summary) => {
+    assert.match(summary, /<span class="faq-summary__label">[^<]+<\/span>/);
+    assert.match(summary, /<span class="faq-summary__icon" aria-hidden="true"><\/span>/);
+    assert.doesNotMatch(summary, /tabindex=/);
+    assert.doesNotMatch(summary, /<button\b|<a\b/);
+  });
+
+  assert.match(styles, /#faq summary:focus-visible\s*{[\s\S]*outline:/);
+  assert.match(styles, /\.faq-summary__icon::before\s*{[\s\S]*content:\s*"▾"/);
+  assert.match(styles, /#faq details\[open\] \.faq-summary__icon\s*{[\s\S]*transform:\s*rotate\(-180deg\)/);
+});
+
 test('homepage includes selected work case studies for richer search context', () => {
   assert.match(index, /<li><a href="#selected-work">Work<\/a><\/li>/);
   assert.match(index, /<section id="selected-work" class="section band" aria-labelledby="selected-work-heading">/);

@@ -499,16 +499,29 @@ section {
   align-items: center;
   gap: 0.5rem;
 }
+#faq summary:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: -3px;
+}
 #faq summary::-webkit-details-marker {
   display: none;
 }
-#faq summary::after {
-  content: "▾";
+.faq-summary__label {
+  min-width: 0;
+}
+.faq-summary__icon {
+  align-items: center;
+  color: var(--muted);
+  display: inline-flex;
+  flex: 0 0 auto;
+  justify-content: center;
   margin-left: auto;
   transition: transform 0.2s ease;
-  color: var(--muted);
 }
-#faq details[open] summary::after {
+.faq-summary__icon::before {
+  content: "▾";
+}
+#faq details[open] .faq-summary__icon {
   transform: rotate(-180deg);
 }
 #faq details > p {
